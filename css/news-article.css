@@ -1,0 +1,173 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --header-size: 60px;
+    --content-top-margin: 0px;
+    --table-of-contents-top-margin: 10px;
+}
+
+/* Table of contents */
+nav {
+    position: sticky;
+    top: calc(var(--header-size) + var(--table-of-contents-top-margin));
+    bottom: 0;
+    height: calc(100vh - var(--header-size));
+    overflow-y: auto;
+}
+
+#table-of-contents-items {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#table-of-contents-items a {
+    display: inline-block;
+    width: auto;
+
+    padding-left: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-right: 1em;
+
+    border-left: 2px solid var(--text-secondary);
+    color: var(--text-secondary);
+    text-decoration: none;
+
+}
+
+#table-of-contents-items a:hover {
+    color: rgb(255, 137, 137);
+}
+
+#table-of-contents-items a.activeTableOfContentItem  {
+    border-left: 2px solid var(--active-table-of-contents-item-border);
+    background-color: var(--active-table-of-contents-item);
+    color: var(--active-table-of-contents-item-text);
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    font-family: "Satoshi-Medium";
+}
+
+/* Article specific styling */
+
+main {
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: 200px minmax(0, 1fr) 200px;
+    margin: auto;
+    width: 100%;
+    max-width: 1500px;
+}
+
+@media screen and (max-width: 60rem) {
+    #content-empty {
+        display: none;
+    }
+
+    nav {
+        display: none;
+    }
+
+    main {
+        padding: 0 2rem;
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.article-card-tags {
+    margin: 0;
+}
+
+#article-title {
+    margin-top: 0;
+    font-family: "Stardom-Regular", Times, serif;
+}
+
+#article-info {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+#article-info p.article-info-item {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+
+
+article {
+    margin-top: calc(var(--header-size) + var(--content-top-margin));
+}
+
+article hr {
+    margin: 0;
+    border-color: var(--text-secondary);
+}
+
+
+article h1, article h2, article h3, article h4, article h5, article h6 {
+    margin-top: 1em;
+    scroll-margin-top: var(--header-size);
+}
+
+
+
+article img {
+  display: block;
+  margin: auto;
+
+  /* let aspect ratio drive both width & height */
+  width: auto;
+  height: auto;
+
+  /* but don’t ever exceed these */
+  max-width: 80%;
+  max-height: 20rem;
+
+  object-fit: contain;
+  border-radius: var(--border-radius);
+}
+
+article figcaption {
+    text-align: center;
+    margin-top: 0.1em;
+    color: var(--text-secondary);
+}
+
+/* Links */
+article a[target="_blank"]::after {
+  content: url("/assets/site-assets/external-link.svg");
+
+  display: inline-block;
+
+  width: 1em;
+  height: 1em;
+
+  margin-left: 0.25em;
+}
+
+article a:link {
+    color: var(--link);
+}
+
+article a:visited {
+    color: var(--link-visited);
+}
+
+article a:hover, article a:focus {
+    color: var(--link-hover);
+}
+
+article a:active {
+    color: var(--link-active);
+}
+
+/* Alternative links are defined in styles.css */

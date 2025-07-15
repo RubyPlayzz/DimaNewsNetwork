@@ -1,0 +1,5 @@
+{% for tag in include.article-tags %}
+    <span class="tag-{{ tag.last }}">
+        {{ tag.first }}
+    </span>
+{% endfor %}

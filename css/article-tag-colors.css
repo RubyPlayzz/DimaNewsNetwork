@@ -1,0 +1,25 @@
+.article-card-tags {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.3em;
+}
+
+.article-card-tags * {
+    font-size: small;
+    font-family: "Satoshi-Medium";
+
+    border-radius: 0.2em;
+    background-color: red; /* Dynamically changed, this is a fallback incase tag color isn't defined */
+    padding: 0.1em 0.2em;
+    color: rgb(255, 255, 255);
+}
+
+/* Tag colors are defined in light.css or dark.css, located in the themes folder */
+.tag-red { background-color: var(--tag-red); }
+.tag-orange { background-color: var(--tag-orange); }
+.tag-yellow { background-color: var(--tag-yellow); }
+.tag-green { background-color: var(--tag-green); }
+.tag-light-blue { background-color: var(--tag-light-blue); }
+.tag-blue { background-color: var(--tag-blue); }
+.tag-purple { background-color: var(--tag-purple); }
+.tag-pink { background-color: var(--tag-pink); }
