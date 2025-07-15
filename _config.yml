@@ -1,3 +1,3 @@
-permalink: /articles/:title/
-url: https://nisiosh.github.io
-baseurl: "/DNN-Github"
+permalink: /articles/:title/ #For articles
+url: https://RubyPlayzz.github.io
+baseurl: "/DimaNewsNetwork"
