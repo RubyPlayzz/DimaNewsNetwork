@@ -1,0 +1,12 @@
+{%- assign d = include.date | date: "%-d" -%}
+{%- if d == "1" or d == "21" or d == "31" -%}
+  {%- assign suffix = "st" -%}
+{%- elsif d == "2" or d == "22" -%}
+  {%- assign suffix = "nd" -%}
+{%- elsif d == "3" or d == "23" -%}
+  {%- assign suffix = "rd" -%}
+{%- else -%}
+  {%- assign suffix = "th" -%}
+{%- endif -%}
+
+{{ include.date | date: "%B " }}{{ d }}{{ suffix }}, {{ include.date | date: "%Y" }}
