@@ -1,0 +1,254 @@
+/**
+* @license
+*
+* Font Family: Satoshi
+* Designed by: Deni Anggara
+* URL: https://www.fontshare.com/fonts/satoshi
+* © 2025 Indian Type Foundry
+*
+* Satoshi Light 
+* Satoshi LightItalic 
+* Satoshi Regular 
+* Satoshi Italic 
+* Satoshi Medium 
+* Satoshi MediumItalic 
+* Satoshi Bold 
+* Satoshi BoldItalic 
+* Satoshi Black 
+* Satoshi BlackItalic 
+* Satoshi Variable (Variable font)
+* Satoshi VariableItalic (Variable font)
+*
+*/
+@font-face {
+    font-family: "Satoshi-Light";
+    src: url("../fonts/Satoshi/Satoshi-Light.woff2") format("woff2"), url("../fonts/Satoshi/Satoshi-Light.woff") format("woff"), url("../fonts/Satoshi/Satoshi-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Satoshi-LightItalic";
+    src: url("../fonts/Satoshi/Satoshi-LightItalic.woff2") format("woff2"), url("../fonts/Satoshi/Satoshi-LightItalic.woff") format("woff"), url("../fonts/Satoshi/Satoshi-LightItalic.ttf") format("truetype");
+    font-weight: 300;
+    font-display: swap;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Satoshi-Regular";
+    src: url("../fonts/Satoshi/Satoshi-Regular.woff2") format("woff2"), url("../fonts/Satoshi/Satoshi-Regular.woff") format("woff"), url("../fonts/Satoshi/Satoshi-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Satoshi-Italic";
+    src: url("../fonts/Satoshi/Satoshi-Italic.woff2") format("woff2"), url("../fonts/Satoshi/Satoshi-Italic.woff") format("woff"), url("../fonts/Satoshi/Satoshi-Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Satoshi-Medium";
+    src: url("../fonts/Satoshi/Satoshi-Medium.woff2") format("woff2"), url("../fonts/Satoshi/Satoshi-Medium.woff") format("woff"), url("../fonts/Satoshi/Satoshi-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Satoshi-MediumItalic";
+    src: url("../fonts/Satoshi/Satoshi-MediumItalic.woff2") format("woff2"), url("../fonts/Satoshi/Satoshi-MediumItalic.woff") format("woff"), url("../fonts/Satoshi/Satoshi-MediumItalic.ttf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Satoshi-Bold";
+    src: url("../fonts/Satoshi/Satoshi-Bold.woff2") format("woff2"), url("../fonts/Satoshi/Satoshi-Bold.woff") format("woff"), url("../fonts/Satoshi/Satoshi-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Satoshi-BoldItalic";
+    src: url("../fonts/Satoshi/Satoshi-BoldItalic.woff2") format("woff2"), url("../fonts/Satoshi/Satoshi-BoldItalic.woff") format("woff"), url("../fonts/Satoshi/Satoshi-BoldItalic.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Satoshi-Black";
+    src: url("../fonts/Satoshi/Satoshi-Black.woff2") format("woff2"), url("../fonts/Satoshi/Satoshi-Black.woff") format("woff"), url("../fonts/Satoshi/Satoshi-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Satoshi-BlackItalic";
+    src: url("../fonts/Satoshi/Satoshi-BlackItalic.woff2") format("woff2"), url("../fonts/Satoshi/Satoshi-BlackItalic.woff") format("woff"), url("../fonts/Satoshi/Satoshi-BlackItalic.ttf") format("truetype");
+    font-weight: 900;
+    font-display: swap;
+    font-style: italic;
+}
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 900.0;
+*
+* available axes:
+'wght' (range from 300.0 to 900.0
+*/
+@font-face {
+    font-family: "Satoshi-Variable";
+    src: url("../fonts/Satoshi/Satoshi-Variable.woff2") format("woff2"), url("../fonts/Satoshi/Satoshi-Variable.woff") format("woff"), url("../fonts/Satoshi/Satoshi-Variable.ttf") format("truetype");
+    font-weight: 300 900;
+    font-display: swap;
+    font-style: normal;
+}
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 900.0;
+*
+* available axes:
+'wght' (range from 300.0 to 900.0
+*/
+@font-face {
+    font-family: "Satoshi-VariableItalic";
+    src: url("../fonts/Satoshi/Satoshi-VariableItalic.woff2") format("woff2"), url("../fonts/Satoshi/Satoshi-VariableItalic.woff") format("woff"), url("../fonts/Satoshi/Satoshi-VariableItalic.ttf") format("truetype");
+    font-weight: 300 900;
+    font-display: swap;
+    font-style: italic;
+}
+/* Stardom */
+/**
+* @license
+*
+* Font Family: Stardom
+* Designed by: Indian Type Foundry
+* URL: https://www.fontshare.com/fonts/stardom
+* © 2025 Indian Type Foundry
+*
+* Stardom Regular 
+*
+*/
+@font-face {
+    font-family: "Stardom-Regular";
+    src: url("../fonts/Stardom/Stardom-Regular.woff2") format("woff2"), url("../fonts/Stardom/Stardom-Regular.woff") format("woff"), url("../fonts/Stardom/Stardom-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+/* ======== Base Styling ============== */
+
+/* ======== NOTICE =====
+These colors are overwritten in changeTheme.js
+If you want to change these colors, do so in the file, in either the lightMode or darkMode 
+dictionaries.
+The file is located in /scripts/changeTheme.js
+*/
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+* {
+    font-family: "Satoshi-Regular",
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+        sans-serif;;
+    color: var(--text-primary);
+    font-size: 16px;
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--background);
+}
+p {
+    font-size: 1rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+h1 {
+    font-size: 2.027rem;
+}
+h2 {
+    font-size: 1.802rem;
+}
+h3 {
+    font-size: 1.602rem;
+}
+h4 {
+    font-size: 1.424rem;
+}
+h5 {
+    font-size: 1.266rem;
+}
+h6 {
+    font-size: 1.125rem;
+}
+small, figcaption {
+    font-size: 0.889rem;
+    color: var(--text-secondary);
+}
+
+code {
+    background-color: var(--box-color);
+    font-family: monospace;
+    font-size: 1em;
+
+    padding: 0.1em 0.2em;
+    border-radius: var(--border-radius);
+}
+
+.pixelated-img {
+    image-rendering: pixelated;
+}
+
+.icon {
+    filter: var(--icon-filter);
+}
+
+.accent-color {
+    color: var(--accent);
+}
+
+/* Links */
+.styled-link:link {
+    color: var(--link);
+}
+
+.styled-link:visited {
+    color: var(--link-visited);
+}
+
+.styled-link:hover, article a:focus {
+    color: var(--link-hover);
+}
+
+.styled-link:active {
+    color: var(--link-active);
+}
+
+/* Alternative links */
+.link-alt:link {
+    color: var(--alt-link);
+}
+
+.link-alt:visited {
+    color: var(--alt-link-visited);
+}
+
+.link-alt:hover {
+    color: var(--alt-link-hover);
+}
+
+.link-alt:active {
+    color: var(--alt-link-active);
+}

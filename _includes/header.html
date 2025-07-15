@@ -1,0 +1,111 @@
+<head>
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/header.css">
+    <link rel="stylesheet" class="page-theme" href="{{ site.baseurl }}/themes/dark.css">
+
+    <script>
+        (function() {
+            // This code changes the theme based on the theme cookie
+            // This is done in an inline script so that it is instant, to prevent a
+            // stuttering/flashing effect when visiting a new page.
+            class PageTheme {
+                constructor(index, themeName, themeImage, themePath) {
+                    this.index = index
+                    this.name = themeName;
+                    this.image = themeImage;
+                    this.path = themePath;
+                };
+            };
+
+            // The first theme defined will be the default theme
+            window.themes = [
+                new PageTheme(0, "Dark Mode", "{{ site.baseurl }}/assets/site-assets/moon.svg", "{{ site.baseurl }}/themes/dark.css"),
+                new PageTheme(1, "Light Mode", "{{ site.baseurl }}/assets/site-assets/sun.svg", "{{ site.baseurl }}/themes/light.css")
+            ];
+
+            window.currentThemeIndex = 0;
+            window.currentTheme = window.themes[window.currentThemeIndex];
+
+                        
+            window.changeTheme = function(theme) {
+                const stylesheet = document.querySelector(".page-theme");
+                stylesheet.href = theme.path;
+
+                window.currentTheme = theme;
+                window.currentThemeIndex = theme.index;
+              
+                if (navigator.cookieEnabled) {
+                    const encodedTheme = encodeURIComponent(theme.name)
+
+                    document.cookie = `userPreferedTheme=${encodedTheme}; path={{ site.baseurl }}`;
+                }
+            };
+
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+
+                if (parts.length === 2) {
+                    return parts.pop().split(';').shift();
+                }
+
+                return null;
+            }
+
+
+            const themeCookie = decodeURIComponent(getCookie("userPreferedTheme"));
+
+            if (themeCookie) {
+                console.log("theme cookie exists!")
+                
+                themes.map((theme) => {
+                    console.log(theme.name + " " + themeCookie)
+                    if (theme.name === themeCookie) {
+                        window.changeTheme(theme);
+                    };
+                });
+            } else {
+                console.log("no cookie")
+            };
+        })();
+        </script>
+    </script>
+</head>
+<body>
+    <script src="{{ site.baseurl }}/scripts/changeTheme.js" type="module"></script>
+    <header>
+        <div class="header-left">
+            <a href="{{ site.baseurl }}">
+                <div class="title-holder">
+                <div class="title-img-holder">
+                    <img class="pixelated-img" src="{{ site.baseurl }}/assets/site-assets/icon.png">
+                    <img class="hovering-title-image pixelated-img" src="{{ site.baseurl }}/assets/site-assets/icon-fill.png" draggable="false">
+                </div>
+                <p id="website-title">Dima News Network</p>
+                <p id="website-title-short">DNN</p>
+                </div>
+            </a>
+            <div class="header-navigation">
+                <div class="home-nav-button">
+                    <a href="{{ site.baseurl }}">
+                        <img src="{{ site.baseurl }}/assets/site-assets/home.svg" class="icon" alt="Home">
+                    </a>
+                    <a href="{{ site.baseurl }}" id="home-text-nav-button">Home</a>
+                </div>
+                <!-- Other buttons are placeholders -->
+                <a href="{{ site.baseurl }}/coming-soon/">About Us</a>
+                <a href="{{ site.baseurl }}/coming-soon/">More</a>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <div id="theme-selector">
+                <img src="{{ site.baseurl }}/assets/site-assets/moon.svg" class="icon" alt="Enable Dark/Light mode">
+                <p>Dark Mode</p>
+            </div>     
+            <a href="" target="_blank"> <!-- UPDATE ME with the link to the github repository -->
+                <img src="{{ site.baseurl }}/assets/site-assets/github-mark-white.svg" class="icon" alt="Source code on Github">
+            </a>
+        </div>
+    </header>
+</body>
+</html>

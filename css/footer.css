@@ -1,0 +1,22 @@
+
+
+footer {
+    background-color: var(--footer-color);
+    border-top: 1px solid var(--footer-border-color);
+
+    position: relative;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    min-height: 5em;
+    padding: 0em 1em;
+
+    margin-top: 5em; 
+    margin-bottom: 0;
+}
+
+footer p {
+    color: var(--text-secondary);
+    margin: 0;
+}

@@ -1,0 +1,16 @@
+main {
+    max-width: 60em;
+    margin: auto;
+    padding: 0em 1em;
+    margin-top: 60px;
+}
+
+main * {
+    text-align: center;
+}
+
+main img {
+    display: block;
+    margin: auto;
+    height: 5em;
+}
