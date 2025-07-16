@@ -34,9 +34,9 @@ layout: "article"
 |---------------|-------------|---------|
 | `title` | The full title of the article. | Crazy Stuff happened today in the real world, people shocked. |
 | `title_short` | A shorter title that appears on the home page and browser window. | Crazy Stuff Happened Today |
-| `author` | Who wrote the article. This is usually displayed as "By `author`" across the website | Me |
+| `author` | Who wrote the article. This is usually displayed as "By `author`" across the website | Bob |
 | `article_tags` | See [Adding tags](#adding-tags) | `["SHOCKING", "yellow"]  -["Wowzers", "red"]` |
-| `cover_image` | The filename of an image inside of `/assets/cover-images/` that is displayed on the article inside of the home page. You do not need a file path. |
+| `cover_image` | The filename of an image inside of `/assets/cover-images/` that is displayed on the article inside of the home page. You do not need a file path. | `crazy-stuff.png` |
 | `layout`| Adds the table of contents and appropriate styling, do not change this. | |
 
 You can then write your HTML below. You do not need any `<!DOCTYPE html>`, `<head>`, or `<body>` tags.
