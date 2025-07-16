@@ -85,6 +85,18 @@ The format for defining tags is
     /* Whatever styling */
 } 
 ```
+## Adding Images
+Adding images is kind of strange
+To add images in an article, you need to set the `src` attribute to the following format:
+```html
+{{ "PATH_TO_FILE" | absolute_url }}
+```
+so 
+`/images/my-image.png`
+becomes
+```html
+<img src={{ "images/my-image.png" | absolute_url }}>
+```
 
 <hr>
 <div align="center">
