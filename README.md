@@ -11,8 +11,8 @@ To create an article, first go into the `_posts` folder and create a new file.
 
 ### File structure
 Articles are sorted by date. The filename of an article should be  
-`YEAR`-`MONTH`-`DAY`-`TITLE` `.html`
-That means if you wanted to create an article named "My Article" on the 15th of July 2025, you would name the file:  
+`YYYY`-`MM`-`DD`-`TITLE` `.html`  
+If you wanted to create an article named "My Article" on the 15th of July 2025, you would name the file:  
 `2025-7-15-my-article.html`.
 
 Markdown is also supported (`.md`)
