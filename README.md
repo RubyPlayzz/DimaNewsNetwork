@@ -4,7 +4,9 @@
 </div>
 
 ## What is it?
-The Dima News Network is a "news" website that was made to practise HTML, CSS and a bit of JavaScript. By [@RubyPlayzz](https://github.com/RubyPlayzz/) and [@nisiosh](https://github.com/nisiosh).
+The Dima News Network is a "news" website that was made to practise HTML, CSS and some JavaScript.
+
+Created by [@RubyPlayzz](https://github.com/RubyPlayzz/) and [@nisiosh](https://github.com/nisiosh).
 
 ## Creating Articles
 To create an article, first go into the `_posts` folder and create a new file.
@@ -18,7 +20,7 @@ If you wanted to create an article named "My Article" on the 15th of July 2025, 
 Markdown is also supported (`.md`)
 
 ### Writing the file
-Add the follwing (called "front matter") to the top of the article and fill out each section:
+Add the following (called "front matter") to the top of the article and fill out each section:
 ```yaml
 ---
 title: ""
