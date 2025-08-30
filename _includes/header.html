@@ -56,7 +56,7 @@
 
             const themeCookie = decodeURIComponent(getCookie("userPreferedTheme"));
 
-            if (themeCookie) {
+            if (themeCookie != undefined && themeCookie != null && themeCookie !== "null") {
                 console.log("theme cookie exists!")
 
                 for (const theme of themes) {
