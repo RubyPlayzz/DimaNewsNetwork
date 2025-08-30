@@ -1,0 +1,1 @@
+none of theses gifs are actually used ingame (the -death and -hit spritesheets are used instead). instead, you can share the assets on discord as gifs
