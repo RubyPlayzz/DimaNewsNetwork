@@ -11,9 +11,18 @@ permalink: /coming-soon/
     <link rel="stylesheet" href="{{ site.baseurl }}/css/styles.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/css/coming-soon.css">
 
-    <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/site-assets/hammer-2.png"
+    <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/site-assets/hammer-2.png">
 
     <script src="{{site.baseurl}}/scripts/hammerGame/game.js" type="module"></script>
+    <!-- Preload images -->
+    <link rel="preload" href="{{site.basurl}}/assets/site-assets/hammer-enemies/basic.png" as="image">
+    <link rel="preload" href="{{site.basurl}}/assets/site-assets/hammer-enemies/basic-death.png" as="image">
+    <link rel="preload" href="{{site.basurl}}/assets/site-assets/hammer-enemies/brute.png" as="image">
+    <link rel="preload" href="{{site.basurl}}/assets/site-assets/hammer-enemies/brute-hit.png" as="image">
+    <link rel="preload" href="{{site.basurl}}/assets/site-assets/hammer-enemies/brute-death.png" as="image">
+    <link rel="preload" href="{{site.basurl}}/assets/site-assets/hammer-enemies/glass.png" as="image">
+    <link rel="preload" href="{{site.basurl}}/assets/site-assets/hammer-enemies/glass-death.png" as="image">
+
 </head>
 <body>
     {% include header.html %}
