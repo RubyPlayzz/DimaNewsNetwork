@@ -1,3 +1,3 @@
 permalink: /articles/:title/ #For articles
-url: https://RubyPlayzz.github.io
-baseurl: "/DimaNewsNetwork"
+url: http:/dima.news
+baseurl: "/"
