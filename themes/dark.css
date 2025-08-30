@@ -18,12 +18,18 @@
 
     --box-color: rgb(41, 41, 41);
     --box-border-color: rgb(94, 94, 94);
+
+    --box-dark-color: rgb(25, 25, 25);
+    --box-dark-border-color: rgb(51, 51, 51);
+
     --border-radius: 5px;
 
     --button-primary: rgb(40, 40, 40);
     --button-primary-hover: rgba(70, 70, 70, 1);
 
     --icon-filter: brightness(100%); /* This turns icons white */
+
+    --nisio: #8a95ff;
 }
 /* Header/Footer */
 :root {

@@ -149,7 +149,8 @@ The file is located in /scripts/changeTheme.js
 */
 
 html,
-body {
+body,
+* {
     margin: 0;
     padding: 0;
 }
@@ -193,7 +194,7 @@ h5 {
 h6 {
     font-size: 1.125rem;
 }
-small, figcaption {
+figcaption, small {
     font-size: 0.889rem;
     color: var(--text-secondary);
 }
@@ -220,20 +221,24 @@ code {
 }
 
 /* Links */
-.styled-link:link {
+a:link {
     color: var(--link);
 }
 
-.styled-link:visited {
+a:visited {
     color: var(--link-visited);
 }
 
-.styled-link:hover, article a:focus {
+a:hover, article a:focus {
     color: var(--link-hover);
 }
 
-.styled-link:active {
+a:active {
     color: var(--link-active);
+}
+
+a.unstyled-link {
+    color: var(--text-primary);
 }
 
 /* Alternative links */

@@ -1,9 +1,8 @@
 <head>
     <link rel="stylesheet" href="{{ site.baseurl }}/css/header.css">
-    <link rel="stylesheet" class="page-theme" href="{{ site.baseurl }}/themes/dark.css">
 
     <script>
-        (function() {
+        (function () {
             // This code changes the theme based on the theme cookie
             // This is done in an inline script so that it is instant, to prevent a
             // stuttering/flashing effect when visiting a new page.
@@ -25,14 +24,14 @@
             window.currentThemeIndex = 0;
             window.currentTheme = window.themes[window.currentThemeIndex];
 
-                        
-            window.changeTheme = function(theme) {
+
+            window.changeTheme = function (theme) {
                 const stylesheet = document.querySelector(".page-theme");
                 stylesheet.href = theme.path;
 
                 window.currentTheme = theme;
                 window.currentThemeIndex = theme.index;
-              
+
                 if (navigator.cookieEnabled) {
                     const encodedTheme = encodeURIComponent(theme.name)
 
@@ -51,37 +50,48 @@
                 return null;
             }
 
+            function setThemeStylesheet(themePath) {
+                document.write('<link rel="stylesheet" class="page-theme" href="' + themePath + '">');
+            }
 
             const themeCookie = decodeURIComponent(getCookie("userPreferedTheme"));
 
             if (themeCookie) {
                 console.log("theme cookie exists!")
-                
-                themes.map((theme) => {
+
+                for (const theme of themes) {
                     console.log(theme.name + " " + themeCookie)
                     if (theme.name === themeCookie) {
-                        window.changeTheme(theme);
+                        setThemeStylesheet(theme.path);
+                        window.currentThemeIndex = theme.index;
+                        window.currentTheme = theme;
+
+                        break
                     };
-                });
+                }
             } else {
                 console.log("no cookie")
+                setThemeStylesheet(window.currentTheme)
             };
         })();
-        </script>
     </script>
+
+
 </head>
+
 <body>
     <script src="{{ site.baseurl }}/scripts/changeTheme.js" type="module"></script>
     <header>
         <div class="header-left">
             <a href="{{ site.baseurl }}/">
                 <div class="title-holder">
-                <div class="title-img-holder">
-                    <img class="pixelated-img" src="{{ site.baseurl }}/assets/site-assets/icon.png">
-                    <img class="hovering-title-image pixelated-img" src="{{ site.baseurl }}/assets/site-assets/icon-fill.png" draggable="false">
-                </div>
-                <p id="website-title">Dima News Network</p>
-                <p id="website-title-short">DNN</p>
+                    <div class="title-img-holder">
+                        <img class="pixelated-img" src="{{ site.baseurl }}/assets/site-assets/icon.png">
+                        <img class="hovering-title-image pixelated-img"
+                            src="{{ site.baseurl }}/assets/site-assets/icon-fill.png" draggable="false">
+                    </div>
+                    <p id="website-title">Dima News Network</p>
+                    <p id="website-title-short">DNN</p>
                 </div>
             </a>
             <div class="header-navigation">
@@ -89,12 +99,12 @@
                     <a href="{{ site.baseurl }}/">
                         <img src="{{ site.baseurl }}/assets/site-assets/home.svg" class="icon" alt="Home">
                     </a>
-                    <a href="{{ site.baseurl }}/" id="home-text-nav-button">Home</a>
+                    <a href="{{ site.baseurl }}/" id="home-text-nav-button" class="unstyled-link">Home</a>
                 </div>
-                <!-- Other buttons are placeholders -->
-                <a href="{{ site.baseurl }}/coming-soon/">About Us</a>
-                <a href="{{ site.baseurl }}/coming-soon/">More</a>
-                <a href="{{ site.baseurl }}/coming-soon/">Stories</a>
+
+                <a href="{{ site.baseurl }}/about-us/" class="unstyled-link">About Us</a>
+                <a href="{{ site.baseurl }}/coming-soon/" class="unstyled-link">More</a>
+                <a href="{{ site.baseurl }}/coming-soon/" class="unstyled-link">Stories</a>
             </div>
         </div>
 
@@ -102,11 +112,14 @@
             <div id="theme-selector">
                 <img src="{{ site.baseurl }}/assets/site-assets/moon.svg" class="icon" alt="Enable Dark/Light mode">
                 <p>Dark Mode</p>
-            </div>     
-            <a href="https://github.com/RubyPlayzz/DimaNewsNetwork/" target="_blank"> <!-- UPDATE ME with the link to the github repository -->
-                <img src="{{ site.baseurl }}/assets/site-assets/github-mark-white.svg" class="icon" alt="Source code on Github">
+            </div>
+            <a href="https://github.com/RubyPlayzz/DimaNewsNetwork/" target="_blank">
+                <!-- UPDATE ME with the link to the github repository -->
+                <img src="{{ site.baseurl }}/assets/site-assets/github-mark-white.svg" class="icon"
+                    alt="Source code on Github">
             </a>
         </div>
     </header>
 </body>
+
 </html>

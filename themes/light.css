@@ -17,12 +17,19 @@
 
     --box-color: rgba(240, 240, 240, 1);
     --box-border-color: rgba(200, 200, 200, 1);
+
+    --box-dark-color: rgba(240, 240, 240, 1);
+    --box-dark-border-color: rgb(210, 210, 210);
+
     --border-radius: 5px;
 
     --button-primary: rgb(160, 160, 160);
     --button-primary-hover: rgb(205, 205, 205);
 
     --icon-filter: brightness(0%); /* This turns icons black */
+
+    --nisio: #8a95ff;
+
 }
 /* Header/Footer */
 :root {

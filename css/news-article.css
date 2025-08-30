@@ -18,7 +18,6 @@ nav {
 }
 
 #table-of-contents-items {
-    margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -43,7 +42,7 @@ nav {
     color: rgb(255, 137, 137);
 }
 
-#table-of-contents-items a.activeTableOfContentItem  {
+#table-of-contents-items a.activeTableOfContentItem {
     border-left: 2px solid var(--active-table-of-contents-item-border);
     background-color: var(--active-table-of-contents-item);
     color: var(--active-table-of-contents-item-text);
@@ -51,11 +50,11 @@ nav {
     border-bottom-right-radius: var(--border-radius);
     font-family: "Satoshi-Medium",
         -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-        sans-serif;;
+        sans-serif;
+    ;
 }
 
 /* Article specific styling */
-
 main {
     display: grid;
     column-gap: 20px;
@@ -94,8 +93,8 @@ main {
     width: 100%;
     height: auto;
     justify-content: space-between;
-    margin-top: 20px;
-    margin-bottom: 0;
+    margin-top: 2em;
+    margin-bottom: 0.1em;
 }
 
 #article-info p.article-info-item {
@@ -104,56 +103,56 @@ main {
 }
 
 
-
-article {
-    margin-top: calc(var(--header-size) + var(--content-top-margin));
-}
-
 article hr {
     margin: 0;
     border-color: var(--text-secondary);
 }
 
 
-article h1, article h2, article h3, article h4, article h5, article h6 {
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
     margin-top: 1em;
+    margin-bottom: 0.2em;
     scroll-margin-top: var(--header-size);
 }
 
 
 
 article img {
-  display: block;
-  margin: auto;
+    display: block;
+    margin: 1em auto;
 
-  /* let aspect ratio drive both width & height */
-  width: auto;
-  height: auto;
+    width: auto;
+    height: auto;
 
-  /* but don’t ever exceed these */
-  max-width: 80%;
-  max-height: 20rem;
+    max-width: 80%;
+    max-height: 20rem;
 
-  object-fit: contain;
-  border-radius: var(--border-radius);
+    object-fit: contain;
+    border-radius: var(--border-radius);
+
 }
 
 article figcaption {
     text-align: center;
-    margin-top: 0.1em;
     color: var(--text-secondary);
+    margin-top: -1em;
 }
 
 /* Links */
 article a[target="_blank"]::after {
-  content: url("/assets/site-assets/external-link.svg");
+    content: url("/assets/site-assets/external-link.svg");
 
-  display: inline-block;
+    display: inline-block;
 
-  width: 1em;
-  height: 1em;
+    width: 1em;
+    height: 1em;
 
-  margin-left: 0.25em;
+    margin-left: 0.25em;
 }
 
 article a:link {
@@ -164,7 +163,8 @@ article a:visited {
     color: var(--link-visited);
 }
 
-article a:hover, article a:focus {
+article a:hover,
+article a:focus {
     color: var(--link-hover);
 }
 

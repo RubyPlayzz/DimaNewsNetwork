@@ -13,4 +13,6 @@ main img {
     display: block;
     margin: auto;
     height: 5em;
+
+    margin-bottom: 2em;
 }

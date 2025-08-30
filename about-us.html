@@ -1,0 +1,72 @@
+---
+permalink: /about-us
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - DNN</title>
+    <link rel="stylesheet" href="{{site.baseurl}}/css/styles.css">
+    <link rel="stylesheet" href="{{site.baseurl}}/css/about-us.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/site-assets/nisio-fill.png">
+</head>
+
+<body>
+    {% include header.html %}
+    <section id="about-us">
+        <h3 id="about-us-title">About Us</h3>
+
+        <div id="about-us-text-container">
+            <div id="about-us-main-content-container">
+                <img class="about-us-author-picture pixelated-img" src="{{site.baseurl}}/assets/site-assets/nisio.png"
+                    alt="nisio">
+
+                <div id="about-us-content">
+                    <!-- remember, p elements dont have newlines -->
+                    <!-- use another p element to go to another line -->
+                    <p>
+                        We at Dima News Network believe that you deserve the best news.
+                        Our mission is to deliver it.
+                    </p>
+                    <br>
+                    <p>
+                        With over 2 hand-written articles (i think 1 of them is half ai generated but still) you can
+                        guarantee that
+                        you
+                        only get the important news today.
+                    </p>
+                    <br>
+                </div>
+            </div>
+
+            <p class="about-us-author">—nisio, <i>DNN Co-founder</i></p>
+        </div>
+
+        <p>Dima News Network was created in under a week by RubyPlayzz & nisio,</p>
+        <p>to practise HTML & CSS.</p>
+        <br>
+        <p>Most stories are based on things we've done in Roblox,</p>
+        <p>none of this has happened in real life!</p>
+        <br>
+        <p>
+            We're
+            <a href="https://github.com/RubyPlayzz/DimaNewsNetwork/" target="_blank">
+                open source on github
+            </a>
+            so do whatever you want with our code!
+        </p>
+        <p>A tutorial for adding articles is in the <code>README.md</code> file.</p>
+        <br>
+        <p>We have many updates planned, stay tuned!</p>
+        <br>
+        <br>
+
+        <p><a href="{{site.baseurl}}/">Go back home</a></p>
+
+    </section>
+</body>
+
+</html>
