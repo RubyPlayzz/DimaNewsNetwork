@@ -36,7 +36,7 @@
                 if (navigator.cookieEnabled) {
                     const encodedTheme = encodeURIComponent(theme.name)
 
-                    document.cookie = `userPreferedTheme=${encodedTheme}; path={{ site.baseurl }}`;
+                    document.cookie = `userPreferedTheme=${encodedTheme}; path={{ site.baseurl }}/`;
                 }
             };
 
