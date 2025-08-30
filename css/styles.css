@@ -141,13 +141,6 @@
 }
 /* ======== Base Styling ============== */
 
-/* ======== NOTICE =====
-These colors are overwritten in changeTheme.js
-If you want to change these colors, do so in the file, in either the lightMode or darkMode 
-dictionaries.
-The file is located in /scripts/changeTheme.js
-*/
-
 html,
 body,
 * {
@@ -220,7 +213,7 @@ code {
     color: var(--accent);
 }
 
-.no-drag {
+.no-select {
     -webkit-user-drag: none;
     user-select: none;
     -moz-user-select: none;

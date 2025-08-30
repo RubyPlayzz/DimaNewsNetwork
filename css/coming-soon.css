@@ -1,20 +1,36 @@
 /* Base page styling */
+body {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
 main {
     max-width: 60em;
     margin: auto;
     margin-top: 20px;
 }
+
 /* Coming soon */
 main * {
     text-align: center;
 }
 
-/* Hammer */
-#hammer {
+main {
+    width: fit-content;
+    height: fit-content;
+}
+
+/* Base Hammer Setup */
+#hammer,
+#hammer-dragging {
     display: block;
     margin: auto;
     height: 8em;
+}
 
+/* Start hammer */
+#hammer {
     margin-bottom: 1em;
 
     transition: transform 0.2s ease-in-out;
@@ -23,4 +39,64 @@ main * {
 #hammer:hover {
     transform: rotate(-5deg);
     cursor: pointer;
+}
+
+/* Dragging hammer */
+#hammer-dragging {
+    position: absolute;
+    transform: translate(-85%, -80%);
+    pointer-events: none;
+
+    transition: transform 0.01s linear;
+}
+
+#hammer-dragging.hitting {
+    transform: translate(-80%, -65%) rotate(30deg);
+}
+
+/* Enemies */
+#enemy-spawn-zone {
+    height: calc(100vh - 4rem);
+    width: 100%;
+
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -1%);
+
+    pointer-events: none;
+
+}
+
+.enemy {
+    --enemy-size: 50px;
+
+    width: var(--enemy-size);
+    height: var(--enemy-size);
+
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    background-size: contain;
+    background-position: center;
+    image-rendering: pixelated;
+
+}
+
+.enemy.basic {
+    background-image: url("../assets/site-assets/hammer-enemies/basic.png");
+}
+
+/* UI */
+#game-ui {
+    display: none;
+    position: absolute;
+    top: 8rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#enemy-count {
+    font-family: "Stardom-Regular", 'Times New Roman', Times, serif;
+    font-size: 5em;
 }

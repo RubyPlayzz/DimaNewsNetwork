@@ -16,13 +16,19 @@ permalink: /coming-soon/
 <body>
     {% include header.html %}
     <main>
-        <img src="{{ site.baseurl }}/assets/site-assets/hammer-2.png" id="hammer" alt="icon" class="pixelated-img no-drag" draggable="false">
+        <img src="{{ site.baseurl }}/assets/site-assets/hammer-2.png" id="hammer" alt="icon" class="pixelated-img no-select" draggable="false">
         <p>The <code>More</code> and <code>Stories</code> sections don't exist yet.</p>
         <br>
         <p>coming soon hopefully</p>
 
         <br>
-        <p><a href="{{ site.baseurl }}">Go Back Home</a></p>
+        <p><a href="{{ site.baseurl }}/">Go Back Home</a></p>
+
+        <div id="game-ui">
+            <h1 id="enemy-count">0</h1>
+        </div>
     </main>
+
+    <div id="enemy-spawn-zone"></div>
 </body>
 </html>
