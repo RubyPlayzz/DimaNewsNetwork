@@ -1,0 +1,1 @@
+const baseHammerElement = document.querySelector();

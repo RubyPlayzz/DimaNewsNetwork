@@ -1,18 +1,26 @@
+/* Base page styling */
 main {
     max-width: 60em;
     margin: auto;
-    padding: 0em 1em;
-    margin-top: 60px;
+    margin-top: 20px;
 }
-
+/* Coming soon */
 main * {
     text-align: center;
 }
 
-main img {
+/* Hammer */
+#hammer {
     display: block;
     margin: auto;
-    height: 5em;
+    height: 8em;
 
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+
+    transition: transform 0.2s ease-in-out;
+}
+
+#hammer:hover {
+    transform: rotate(-5deg);
+    cursor: pointer;
 }
