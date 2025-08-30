@@ -1,6 +1,9 @@
 /* Base page styling */
-body {
+html, body, main {
     overflow: hidden;
+}
+
+body {
     height: 100vh;
     width: 100vw;
 }
@@ -87,6 +90,55 @@ main {
     background-image: url("../assets/site-assets/hammer-enemies/basic.png");
 }
 
+.enemy.brute {
+    background-image: url("../assets/site-assets/hammer-enemies/brute.png");
+}
+
+.enemy.glass {
+    background-image: url("../assets/site-assets/hammer-enemies/glass.png");
+}
+
+/* Enemy Animations */
+.enemy.death {
+    background-size: auto 100%;
+    animation: sheet-anim 0.3s steps(7) forwards;
+}
+
+.enemy.basic.death {
+    background-image: url("../assets/site-assets/hammer-enemies/basic-death.png");
+}
+
+.enemy.brute.hit {
+    background-image: url("../assets/site-assets/hammer-enemies/brute-hit.png");
+
+    background-size: auto 100%;
+    animation: hit-anim 0.2s steps(4) forwards;
+}
+
+.enemy.brute.death {
+    background-size: auto 100%;
+    animation: sheet-anim 0.3s steps(7) forwards;
+    background-image: url("../assets/site-assets/hammer-enemies/brute-death.png");
+}
+
+.enemy.glass.death {
+    background-size: auto 100%;
+    animation: sheet-anim 0.5s steps(7) forwards;
+    background-image: url("../assets/site-assets/hammer-enemies/glass-death.png");
+}
+
+@keyframes hit-anim {
+    /* We need to have 2 different animations for hitting and death */
+    /* Setting animation to sheet-anim twice doesnt do anything */
+    /* So the brute-death animation will play at the same frame that the hit animation was at */
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+}
+
+@keyframes sheet-anim {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+}
 /* UI */
 #game-ui {
     display: none;
@@ -99,4 +151,22 @@ main {
 #enemy-count {
     font-family: "Stardom-Regular", 'Times New Roman', Times, serif;
     font-size: 5em;
+}
+
+/* Dev Stats */
+#dev-stats {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    display: none;
 }
