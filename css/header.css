@@ -11,7 +11,7 @@ header {
     backdrop-filter: blur(4px);
     border-bottom: 1px solid var(--header-border-color);
 
-    width: 100vw;
+    width: 100%;
     height: 50px;
 
     position: fixed;
@@ -26,9 +26,8 @@ header {
     z-index: 1000;
 }
 
-header * {
-    white-space: nowrap;
-}
+header { outline: 2px solid rgba(255,0,0,0.5); }
+
 
 header a {
     text-decoration: none;

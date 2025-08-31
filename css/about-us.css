@@ -2,6 +2,12 @@ html, body {
     height: 100%;
 }
 
+:root {
+  --header-size: 3.5rem;
+}
+
+
+
 body {
     display: flex;
     align-items: center;
