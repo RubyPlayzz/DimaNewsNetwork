@@ -1,7 +1,3 @@
-* {
-    box-sizing: border-box;
-}
-
 :root {
     --header-size: 60px;
     --content-top-margin: 0px;
