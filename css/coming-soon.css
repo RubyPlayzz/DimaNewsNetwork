@@ -69,6 +69,8 @@ main {
 
     pointer-events: none;
 
+    background-color: red;
+
 }
 
 .enemy {
