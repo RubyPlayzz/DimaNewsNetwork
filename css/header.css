@@ -30,6 +30,14 @@ header a {
     text-decoration: none;
 }
 
+header img {
+    display: block;
+    margin: 1em auto;
+
+    width: auto;
+    height: auto;
+}
+
 .header-left {
     display: flex;
     align-items: center;
@@ -171,6 +179,7 @@ header .title-holder .title-img-holder {
 .header-right {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 1em;
 
     height: 2em;
