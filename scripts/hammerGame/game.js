@@ -344,20 +344,33 @@ function StartGame() {
         // Get Enemy type
         let type;
 
-        if (!typeOverride) {
-            const totalChance = enemyTypes.reduce((sum, e) => sum + e.chance, 0);
-            const randomPercent = Math.random() * totalChance;
-            let cumulative = 0;
+        if (!(score >= 100000)) {
+            if (!typeOverride) {
+                const totalChance = enemyTypes.reduce((sum, e) => sum + e.chance, 0);
+                const randomPercent = Math.random() * totalChance;
+                let cumulative = 0;
 
-            for (const enemy of enemyTypes) {
-                cumulative += enemy.chance;
-                if (randomPercent < cumulative) {
-                    type = enemy.type;
-                    break;
+                for (const enemy of enemyTypes) {
+                    cumulative += enemy.chance;
+                    if (randomPercent < cumulative) {
+                        type = enemy.type;
+                        break;
+                    }
                 }
-            }
 
-        } else type = typeOverride;
+            } else type = typeOverride;
+        } else {
+            if (!typeOverride) {
+                // Only spawn quads and glass \\
+                const randomInt = getRandomInt(1, 10);
+
+                if (randomInt === 1) {
+                    type = "glass";
+                } else {
+                    type = "quad";
+                }
+            } else type = typeOverride
+        }
 
         enemy.classList.add(type);
 
