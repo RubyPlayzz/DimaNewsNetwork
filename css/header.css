@@ -1,3 +1,7 @@
+:root {
+  --header-size: 3.5rem;
+}
+
 body {
     margin-top: 3.5rem;
 }
