@@ -76,6 +76,8 @@
         })();
     </script>
 
+    <script defer src="{{site.baseurl}}/scripts/header-hamburger-menu.js"></script>
+
 
 </head>
 
@@ -83,6 +85,7 @@
     <script src="{{ site.baseurl }}/scripts/changeTheme.js" type="module"></script>
     <header>
         <div class="header-left">
+            <!-- Website title -->
             <a href="{{ site.baseurl }}/">
                 <div class="title-holder">
                     <div class="title-img-holder">
@@ -94,17 +97,14 @@
                     <p id="website-title-short">DNN</p>
                 </div>
             </a>
-            <div class="header-navigation">
-                <div class="home-nav-button">
-                    <a href="{{ site.baseurl }}/">
-                        <img src="{{ site.baseurl }}/assets/site-assets/home.svg" class="icon" alt="Home">
-                    </a>
-                    <a href="{{ site.baseurl }}/" id="home-text-nav-button" class="unstyled-link">Home</a>
-                </div>
 
+            <!-- Links -->
+            <div class="header-navigation">
+                <!-- Links -->
+
+                <a href="{{ site.baseurl }}/" id="home-text-nav-button" class="unstyled-link">Home</a>
                 <a href="{{ site.baseurl }}/about-us/" class="unstyled-link">About Us</a>
                 <a href="{{ site.baseurl }}/coming-soon/" class="unstyled-link">Stories</a>
-<<<<<<< HEAD
                 <a href="{{ site.baseurl }}/coming-soon/" class="unstyled-link">More</a>
 
                 <!-- Hamburger menu (appears if screen is too small) -->
@@ -117,16 +117,18 @@
                         <a href="{{ site.baseurl }}/coming-soon/" class="unstyled-link">More</a>
                     </div>
                 </button>
-=======
->>>>>>> parent of d77f03b (Add hamburger button links for smaller screens)
             </div>
+            
         </div>
 
         <div class="header-right">
+            <!-- Theme -->
             <div id="theme-selector">
                 <img src="{{ site.baseurl }}/assets/site-assets/moon.svg" class="icon" alt="Enable Dark/Light mode">
                 <p>Dark Mode</p>
             </div>
+
+            <!-- Github link -->
             <a href="https://github.com/RubyPlayzz/DimaNewsNetwork/" target="_blank">
                 <!-- UPDATE ME with the link to the github repository -->
                 <img src="{{ site.baseurl }}/assets/site-assets/github-mark-white.svg" class="icon"

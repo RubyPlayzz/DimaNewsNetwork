@@ -146,7 +146,6 @@ body,
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 * {
     font-family: "Satoshi-Regular",
@@ -154,6 +153,7 @@ body,
         sans-serif;;
     color: var(--text-primary);
     font-size: 16px;
+    box-sizing: border-box;
 }
 body {
     background-color: var(--background);
