@@ -22,6 +22,10 @@ header {
     z-index: 1000;
 }
 
+header * {
+    white-space: nowrap;
+}
+
 header a {
     text-decoration: none;
 }
@@ -31,7 +35,7 @@ header a {
     align-items: center;
     justify-content: flex-start;
     flex-direction: row;
-    gap: 2em
+    gap: 1em
 }
 
 header .title-holder {
@@ -82,6 +86,8 @@ header .title-holder .title-img-holder {
 .header-navigation {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
     gap: 1em;
 }
 
@@ -99,6 +105,68 @@ header .title-holder .title-img-holder {
 .home-nav-button img {
     display: none;
 }
+
+/* Nav hamburger */
+#link-hamburger-menu {
+    height: 2.5em;
+    width: 2.5em;
+    padding: 0.6em;
+
+    background-color: transparent;
+    border-radius: 80%;
+    border: none;
+
+    position: relative;
+
+    display: none; /* Hide initially */
+
+}
+
+#link-hamburger-menu:hover {
+    background-color: var(--button-primary-hover);
+}
+
+#link-hamburger-menu img {
+    filter: var(--icon-filter);
+
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+/* Hamburger menu items */
+#hamburger-dropdown {
+    background-color: var(--header-color);
+    border: 1px solid var(--header-border-color);
+    border-radius: var(--border-radius);
+
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+
+    gap: 0.2em;
+
+    width: 5em;
+
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, 10%);
+
+    overflow: hidden;
+
+    transition: opacity 0.1s ease-in-out;
+}
+
+#hamburger-dropdown a {
+    width: 100%;
+    padding: 0.1em;
+}
+
+#hamburger-dropdown :nth-child(even) {
+    background-color: var(--box-color);
+}
 /* Header right side */
 .header-right {
     display: flex;
@@ -106,8 +174,6 @@ header .title-holder .title-img-holder {
     gap: 1em;
 
     height: 2em;
-
-    margin-right: 0.5em;
 }
 
 .header-right img {
@@ -145,7 +211,7 @@ header .title-holder .title-img-holder {
 
 /* Media Query (Collapse UI for smaller devices) */
 @media screen and (max-width: 45em) {
-    .header-navigation > :not(.home-nav-button) {
+    .header-navigation > a {
         display: none;
     }
 
@@ -153,16 +219,8 @@ header .title-holder .title-img-holder {
         gap: 1em;
     }
 
-    .home-nav-button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.3em;
-        padding: 0.05em 0.3em;
-    }
-
-    .home-nav-button img {
-        display: inline;
+    #link-hamburger-menu {
+        display: block;
     }
 }
 
@@ -173,12 +231,6 @@ header .title-holder .title-img-holder {
 
     #theme-selector img {
         height: 120%;
-    }
-}
-
-@media screen and (max-width: 27em) {
-    #home-text-nav-button {
-        display: none;
     }
 }
 
