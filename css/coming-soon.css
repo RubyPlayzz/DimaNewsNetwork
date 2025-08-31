@@ -97,6 +97,10 @@ main {
     background-image: url("../assets/site-assets/hammer-enemies/glass.png");
 }
 
+.enemy.quad {
+    background-image: url("../assets/site-assets/hammer-enemies/quad.png");
+}
+
 /* Enemy Animations */
 .enemy.death {
     background-size: auto 100%;
@@ -124,6 +128,19 @@ main {
     background-size: auto 100%;
     animation: sheet-anim 0.5s steps(7) forwards;
     background-image: url("../assets/site-assets/hammer-enemies/glass-death.png");
+}
+
+.enemy.quad.hit {
+    background-image: url("../assets/site-assets/hammer-enemies/quad-hit.png");
+
+    background-size: auto 100%;
+    animation: hit-anim 0.3s steps(5) forwards;
+}
+
+.enemy.quad.death {
+    background-size: auto 100%;
+    animation: sheet-anim 0.45s steps(7) forwards;
+    background-image: url("../assets/site-assets/hammer-enemies/quad-death.png");
 }
 
 @keyframes hit-anim {

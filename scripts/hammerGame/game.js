@@ -125,7 +125,7 @@ function StartGame() {
     const START_ENEMY_SPAWN_DELAY = 1700;
     const MIN_ENEMY_SPAWN_DELAY = 800;
 
-    const ENEMY_SPAWN_DELAY_DECREASE = 30;
+    const ENEMY_SPAWN_DELAY_DECREASE = 20;
 
     const ENEMY_SPAWN_DELAY_RANDOMNESS_RANGE = 300;
 
@@ -142,6 +142,8 @@ function StartGame() {
     let enemySpawnIncreaseFactor = 6;
 
     let score = 0;
+
+    let quadCanSpawn = false;
 
     // Dev Stats \\
     const killsDevStats = document.getElementById("dev-stats-kills")
@@ -247,19 +249,37 @@ function StartGame() {
 
                 // Enemy logic \\
                 switch (enemyType) {
-                    case "brute": {
+                    case "brute":
+                    case "quad": {
                         const lives = Number(enemy.dataset.lives);
 
                         if (lives <= 1) {
                             enemy.classList.remove("hit");
                             KillEnemy()
                         } else {
-                            enemy.dataset.lives = lives - 1;
-                            enemy.classList.add("hit");
+                            const newLives = lives - 1
+                            enemy.dataset.lives = newLives;
+                            enemy.classList.remove("hit");
+                            setTimeout(() => {
+                                enemy.classList.add("hit");
+                            }, 0) // Queue for next frame
 
                             setTimeout(() => {
-                                enemy.classList.remove("hit");
+                                if (enemy.dataset.lives === newLives) {
+                                    // Only remove hit animation if enemy hasn't been hit afterwards
+                                    // Otherwise, the hit animation will cancel
+                                    enemy.classList.remove("hit");
+                                }
+
                             }, 1000)
+
+                            // Add points per hit for quad \\
+                            if (enemyType === "quad") {
+                                const scoreReward = Number(enemy.dataset.deathScore);
+
+                                score += scoreReward;
+                                UpdateUI()
+                            }
                         }
                         break
                     }
@@ -270,6 +290,14 @@ function StartGame() {
                     default: {
                         KillEnemy()
                     }
+                }
+
+                // Add quad type if score is high enough \\
+                const QUAD_SPAWN_SCORE = 15000;
+
+                if (score > QUAD_SPAWN_SCORE && !quadCanSpawn) {
+                    quadCanSpawn = true;
+                    enemyTypes.push({type: "quad", chance: 6})
                 }
 
                 // Increase difficulty \\
@@ -297,7 +325,7 @@ function StartGame() {
     document.addEventListener("mouseup", LiftUpHammer)
 
     // ##### Enemy Spawning ####
-    const enemyTypes = [
+    let enemyTypes = [
         { type: "basic", chance: 60 },
         { type: "brute", chance: 30 },
         { type: "glass", chance: 10 }
@@ -306,6 +334,7 @@ function StartGame() {
         "basic": 100,
         "brute": 200,
         "glass": 0,
+        "quad": 250,
     }
 
     function SpawnEnemy(disableLogic, typeOverride) {
@@ -316,7 +345,8 @@ function StartGame() {
         let type;
 
         if (!typeOverride) {
-            const randomPercent = Math.random() * 100;
+            const totalChance = enemyTypes.reduce((sum, e) => sum + e.chance, 0);
+            const randomPercent = Math.random() * totalChance;
             let cumulative = 0;
 
             for (const enemy of enemyTypes) {
@@ -358,6 +388,10 @@ function StartGame() {
                 enemy.dataset.lives = 2;
                 break;
             }
+            case "quad": {
+                enemy.dataset.lives = 4;
+                break;
+            }
             case "glass": {
                 // Remove after 10 seconds \\
                 setTimeout(() => {
@@ -366,6 +400,7 @@ function StartGame() {
                         enemy.remove();
                     }, 1000)
                 }, 10000)
+                break
             }
         }
     }
@@ -453,7 +488,7 @@ function StartGame() {
                 }, (5 * i) + 1000)
             }
 
-            setTimeout(RevertToStart, 5 * 300 + 1100)
+            setTimeout(RevertToStart, 5 * 300 + 1000)
         } else RevertToStart();
         
     }
