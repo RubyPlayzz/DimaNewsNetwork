@@ -26,9 +26,6 @@ header {
     z-index: 1000;
 }
 
-header { outline: 2px solid rgba(255,0,0,0.5); }
-
-
 header a {
     text-decoration: none;
 }
@@ -177,6 +174,8 @@ header .title-holder .title-img-holder {
     gap: 1em;
 
     height: 2em;
+
+    background-color: red;
 }
 
 .header-right img {
@@ -214,10 +213,6 @@ header .title-holder .title-img-holder {
 
 /* Media Query (Collapse UI for smaller devices) */
 @media screen and (max-width: 45em) {
-    .header-navigation > a {
-        display: none;
-    }
-
     .header-left {
         gap: 1em;
     }
