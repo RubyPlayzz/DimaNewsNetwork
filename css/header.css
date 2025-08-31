@@ -22,10 +22,6 @@ header {
     z-index: 1000;
 }
 
-header * {
-    white-space: nowrap;
-}
-
 header a {
     text-decoration: none;
 }
@@ -35,9 +31,13 @@ header a {
     align-items: center;
     justify-content: flex-start;
     flex-direction: row;
+<<<<<<< HEAD
     gap: 1em;
 
     background-color: brown;
+=======
+    gap: 2em
+>>>>>>> parent of d77f03b (Add hamburger button links for smaller screens)
 }
 
 header .title-holder {
@@ -88,8 +88,6 @@ header .title-holder .title-img-holder {
 .header-navigation {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
     gap: 1em;
 }
 
@@ -107,6 +105,7 @@ header .title-holder .title-img-holder {
 .home-nav-button img {
     display: none;
 }
+<<<<<<< HEAD
 
 /* Nav hamburger */
 #link-hamburger-menu {
@@ -169,6 +168,8 @@ header .title-holder .title-img-holder {
 #hamburger-dropdown :nth-child(even) {
     background-color: var(--box-color);
 }
+=======
+>>>>>>> parent of d77f03b (Add hamburger button links for smaller screens)
 /* Header right side */
 .header-right {
     display: flex;
@@ -177,7 +178,11 @@ header .title-holder .title-img-holder {
 
     height: 2em;
 
+<<<<<<< HEAD
     background-color: blue;
+=======
+    margin-right: 0.5em;
+>>>>>>> parent of d77f03b (Add hamburger button links for smaller screens)
 }
 
 .header-right img {
@@ -215,7 +220,7 @@ header .title-holder .title-img-holder {
 
 /* Media Query (Collapse UI for smaller devices) */
 @media screen and (max-width: 45em) {
-    .header-navigation > a {
+    .header-navigation > :not(.home-nav-button) {
         display: none;
     }
 
@@ -223,8 +228,16 @@ header .title-holder .title-img-holder {
         gap: 1em;
     }
 
-    #link-hamburger-menu {
-        display: block;
+    .home-nav-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.3em;
+        padding: 0.05em 0.3em;
+    }
+
+    .home-nav-button img {
+        display: inline;
     }
 }
 
@@ -235,6 +248,12 @@ header .title-holder .title-img-holder {
 
     #theme-selector img {
         height: 120%;
+    }
+}
+
+@media screen and (max-width: 27em) {
+    #home-text-nav-button {
+        display: none;
     }
 }
 
