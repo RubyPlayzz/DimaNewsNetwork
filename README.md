@@ -103,4 +103,12 @@ becomes
 <hr>
 <div align="center">
     <img src="/assets/site-assets/icon-upscaled.png" style="height: 6em">
+    <img src="/assets/site-assets/nisio-upscaled.png" style="height: 5em">
+
+</div>
+<br>
+<div align="center">
+    <img src="/assets/site-assets/hammer-enemies/brute-upscaled.png" style="height: 4em;"> &nbsp;
+    <img src="/assets/site-assets/hammer-enemies/glass-upscaled.png" style="height: 4em;"> &nbsp;
+    <img src="/assets/site-assets/hammer-enemies/quad-upscaled.png" style="height: 4em">
 </div>
