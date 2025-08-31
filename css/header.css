@@ -211,7 +211,7 @@ header .title-holder .title-img-holder {
 
 /* Media Query (Collapse UI for smaller devices) */
 @media screen and (max-width: 45em) {
-    .header-navigation a {
+    .header-navigation > a {
         display: none;
     }
 
