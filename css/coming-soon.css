@@ -68,9 +68,6 @@ main {
     transform: translate(-50%, -1%);
 
     pointer-events: none;
-
-    background-color: red;
-
 }
 
 .enemy {
