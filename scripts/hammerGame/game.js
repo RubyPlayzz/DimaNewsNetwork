@@ -1,6 +1,10 @@
+import {getCookie, setCookie, checkCookie } from "../cookieManager.js"
+
+
 const baseHammerElement = document.getElementById("hammer");
 const enemySpawnZone = document.getElementById("enemy-spawn-zone");
 const mainTextArea = document.querySelector("main");
+const highScoreUI = document.getElementById("high-score");
 
 let hammer = null;
 
@@ -34,6 +38,28 @@ document.addEventListener("mousemove", e => {
     MoveHammerToCursor(e.clientX, e.clientY)
 })
 
+// High score setup \\
+function addCommasToNumber(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function UpdateHighScore(score) {
+    highScoreUI.innerText = `Best: ${addCommasToNumber(score)}`;
+    setCookie("hammer-game-high-score", score)
+}
+
+const highScoreExists = checkCookie("hammer-game-high-score");
+let highScore = 0;
+
+if (highScoreExists) {
+    highScoreUI.style.display = "block";
+
+    highScore = Number(getCookie("hammer-game-high-score"));
+
+    UpdateHighScore(highScore);
+} else {
+    highScoreUI.style.display = "none";
+}
 
 // #### Game #### \\
 function isMultiple(num, multiple) {
@@ -86,14 +112,20 @@ function StartGame() {
 
     mainTextArea.classList.add("no-select");
 
+    function endGameOnResize() {
+        EndGame(true)
+    }
+
+    window.addEventListener("resize", endGameOnResize);
 
     const MAXIMUM_MAX_ENEMY_BURST = 3;
-    const LOSE_ENEMY_COUNT = 30;
+    const LOSE_ENEMY_COUNT = 20;
+    const ENEMY_COUNT_RED_START = 10; // Number that the enemy count will start getting red at (to indicate that the player is near the death count)
 
     const START_ENEMY_SPAWN_DELAY = 1700;
-    const MIN_ENEMY_SPAWN_DELAY = 1000;
+    const MIN_ENEMY_SPAWN_DELAY = 800;
 
-    const ENEMY_SPAWN_DELAY_DECREASE = 80;
+    const ENEMY_SPAWN_DELAY_DECREASE = 30;
 
     const ENEMY_SPAWN_DELAY_RANDOMNESS_RANGE = 300;
 
@@ -108,6 +140,8 @@ function StartGame() {
 
     let enemyBurstSpawnIncreaseFactor = 2; // How many kills the player has to get before max enemies increase
     let enemySpawnIncreaseFactor = 6;
+
+    let score = 0;
 
     // Dev Stats \\
     const killsDevStats = document.getElementById("dev-stats-kills")
@@ -133,17 +167,24 @@ function StartGame() {
     // ### UI ### \\
     const gameUI = document.getElementById("game-ui");
     const enemyUI = document.getElementById("enemy-count");
+    const scoreUI = document.getElementById("score");
 
     gameUI.style.display = "block";
 
 
-    function UpdateEnemyUI() {
+    function UpdateUI() {
         enemyUI.innerText = enemiesCount;
+        scoreUI.innerText = `Score: ${addCommasToNumber(score)}`;
 
-        if (enemiesCount >= 20) {
+        if (score > highScore) {
+            UpdateHighScore(score)
+            highScoreUI.style.display = "block";
+        }
+
+        if (enemiesCount >= ENEMY_COUNT_RED_START) {
             // Make red depending on enemy count \\
             // Normalize value to 0-1
-            const t = (enemiesCount - 20) / (LOSE_ENEMY_COUNT - 20);
+            const t = (enemiesCount - ENEMY_COUNT_RED_START) / (LOSE_ENEMY_COUNT - ENEMY_COUNT_RED_START);
 
             // Define start and end colors
             const startColor = { r: 255, g: 255, b: 255 }; // White
@@ -160,6 +201,8 @@ function StartGame() {
     // Use Hammer \\
     function UseHammer(e) {
         let mouseX, mouseY;
+
+        if (e.cancelable) e.preventDefault(); // stops mouse event if on mobile
 
         if (e instanceof TouchEvent) {
             mouseX = e.touches[0].clientX;
@@ -180,6 +223,13 @@ function StartGame() {
                 const enemyType = enemy.dataset.type;
 
                 function KillEnemy() {
+                    // Add to score \\
+                    const scoreReward = Number(enemy.dataset.deathScore);
+
+                    console.log(scoreReward);
+                    score += scoreReward;
+                    // ui is updated in later line
+
                     // Death Animation \\
                     enemy.classList.add("death")
                     setTimeout(() => {
@@ -190,9 +240,9 @@ function StartGame() {
                     enemies.splice(i, 1);
 
                     enemiesCount--;
-                    UpdateEnemyUI();
-
                     enemiesKilled++;
+                
+                    UpdateUI();
                 }
 
                 // Enemy logic \\
@@ -206,6 +256,7 @@ function StartGame() {
                         } else {
                             enemy.dataset.lives = lives - 1;
                             enemy.classList.add("hit");
+
                             setTimeout(() => {
                                 enemy.classList.remove("hit");
                             }, 1000)
@@ -213,7 +264,7 @@ function StartGame() {
                         break
                     }
                     case "glass": {
-                        EndGame("glass");
+                        EndGame(false, "glass");
                         break
                     }
                     default: {
@@ -224,7 +275,7 @@ function StartGame() {
                 // Increase difficulty \\
                 if (isMultiple(enemiesKilled, Math.floor(enemySpawnIncreaseFactor))) {
                     if (enemySpawnDelay > MIN_ENEMY_SPAWN_DELAY) enemySpawnDelay -= ENEMY_SPAWN_DELAY_DECREASE;
-                    enemySpawnIncreaseFactor += 0.5;
+                    enemySpawnIncreaseFactor += 1.5;
                 }
 
                 if (isMultiple(maxEnemyBurstCount, Math.floor(enemyBurstSpawnIncreaseFactor))) {
@@ -240,9 +291,9 @@ function StartGame() {
     }
 
     document.addEventListener("mousedown", UseHammer)
-    document.addEventListener("touchstart", UseHammer)
+    document.addEventListener("touchstart", UseHammer, {passive: false})
 
-    document.addEventListener("touchend", UseHammer)
+    document.addEventListener("touchend", LiftUpHammer, {passive: false})
     document.addEventListener("mouseup", LiftUpHammer)
 
     // ##### Enemy Spawning ####
@@ -251,6 +302,11 @@ function StartGame() {
         { type: "brute", chance: 30 },
         { type: "glass", chance: 10 }
     ]
+    const enemyScores = {
+        "basic": 100,
+        "brute": 200,
+        "glass": 0,
+    }
 
     function SpawnEnemy(disableLogic, typeOverride) {
         const enemy = document.createElement("div");
@@ -287,12 +343,15 @@ function StartGame() {
 
         if (type !== "glass") enemiesCount++;
 
-        UpdateEnemyUI()
+        UpdateUI()
 
         // Enemy logic \\
         if (disableLogic) return; // Exit early if logic is disabled
 
+        const deathScore = enemyScores[type];
+
         enemy.dataset.type = type;
+        enemy.dataset.deathScore = deathScore;
 
         switch (type) {
             case "brute": {
@@ -343,7 +402,7 @@ function StartGame() {
     SpawnEnemyTimeout()
 
 
-    function EndGame(enemyTypeAnimationOverride) {
+    function EndGame(dontAnimate = false, enemyTypeAnimationOverride) {
         // Player has lost! \\
         console.log("Game over!");
 
@@ -351,24 +410,14 @@ function StartGame() {
 
         // Remove events \\
         document.removeEventListener("mousedown", UseHammer)
-        document.removeEventListener("touchstart", UseHammer)
+        document.removeEventListener("touchstart", UseHammer, {passive: false})
 
-        document.removeEventListener("touchend", UseHammer)
+        document.removeEventListener("touchend", LiftUpHammer, {passive: false})
         document.removeEventListener("mouseup", LiftUpHammer)
 
+        window.removeEventListener("resize", endGameOnResize)
 
-
-        // Spawn a ton of enemies for death animation \\
-        SpawnEnemy(true, enemyTypeAnimationOverride)
-
-        for (let i = 0; i < 300; i++) {
-            setTimeout(() => {
-                SpawnEnemy(true, enemyTypeAnimationOverride)
-            }, (5 * i) + 1000)
-        }
-
-        setTimeout(() => {
-            // Revert to start \\
+        function RevertToStart() {
             // Reset hammer \\
             hammer.remove();
             baseHammerElement.style.opacity = "1";
@@ -391,7 +440,22 @@ function StartGame() {
             gameUI.style.display = "none";
 
             enemyUI.style.color = "";
-        }, 5 * 300 + 1100)
+        }
+
+        // #### Animation #####
+        if (!dontAnimate) {
+            // Spawn a ton of enemies for death animation \\
+            SpawnEnemy(true, enemyTypeAnimationOverride)
+
+            for (let i = 0; i < 300; i++) {
+                setTimeout(() => {
+                    SpawnEnemy(true, enemyTypeAnimationOverride)
+                }, (5 * i) + 1000)
+            }
+
+            setTimeout(RevertToStart, 5 * 300 + 1100)
+        } else RevertToStart();
+        
     }
 
 }

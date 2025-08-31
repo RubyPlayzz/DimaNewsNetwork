@@ -213,6 +213,10 @@ code {
     color: var(--accent);
 }
 
+.secondary {
+    color: var(--text-secondary);
+}
+
 .no-select {
     -webkit-user-drag: none;
     user-select: none;

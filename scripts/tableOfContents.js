@@ -14,7 +14,6 @@ const headingTags = [
 ]
 
 const children = article.children
-const articleNodes = article.children;
 for (let i = 0; i < children.length; i++) {
     let childNode = children[i];
 
@@ -23,7 +22,7 @@ for (let i = 0; i < children.length; i++) {
     };
 };
 
-function scrollHeadingIntoView(heading, tableOfContentsItem) {   
+function scrollHeadingIntoView(heading) {   
     heading.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
@@ -60,7 +59,7 @@ articleHeadings.map((heading) => {
     });
 });
 
-window.addEventListener("scroll", (event) => {
+window.addEventListener("scroll", () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     tocItems.forEach(item =>

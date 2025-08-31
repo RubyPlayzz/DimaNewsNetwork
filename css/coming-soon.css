@@ -50,7 +50,7 @@ main {
     transform: translate(-85%, -80%);
     pointer-events: none;
 
-    transition: transform 0.01s linear;
+    transition: transform 0.005s linear;
 }
 
 #hammer-dragging.hitting {
@@ -145,12 +145,16 @@ main {
     position: absolute;
     top: 8rem;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -40%);
 }
 
 #enemy-count {
     font-family: "Stardom-Regular", 'Times New Roman', Times, serif;
     font-size: 5em;
+}
+
+#high-score {
+    margin-top: -0.8em;
 }
 
 /* Dev Stats */
