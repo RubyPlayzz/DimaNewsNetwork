@@ -36,8 +36,6 @@ header a {
     justify-content: flex-start;
     flex-direction: row;
     gap: 1em;
-
-    background-color: brown;
 }
 
 header .title-holder {
@@ -176,8 +174,6 @@ header .title-holder .title-img-holder {
     gap: 1em;
 
     height: 2em;
-
-    background-color: blue;
 }
 
 .header-right img {
