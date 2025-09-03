@@ -1,3 +1,21 @@
+//############## <--- Game Settings ---> ############## \\
+const MAXIMUM_MAX_ENEMY_BURST = 3; // this is kinda unused, you can make it higher if u want but doesnt to much other than make it harder
+const LOSE_ENEMY_COUNT = 20; // How many enemies can spawn until the player loses
+const ENEMY_COUNT_RED_START = 10; // Number that the enemy count will start getting red at (to indicate that the player is near the death count)
+
+const START_ENEMY_SPAWN_DELAY = 1700; // How many miliseconds it takes before enemies will spawn. This is subtracted by ENEMY_SPAWN_DELAY_DECREASE every few kills
+const MIN_ENEMY_SPAWN_DELAY = 800; // The minimum enemy spawn delay
+
+const ENEMY_SPAWN_DELAY_DECREASE = 20; // How much the enemy spawn delay decreases. The spawn delay will decrease around every 2 kills, but this gets higher the more kills you get
+
+const ENEMY_SPAWN_DELAY_RANDOMNESS_RANGE = 300; // ignore this ig
+
+const QUAD_SPAWN_SCORE = 15000; // the score that the player will get before quads start spawning
+
+const ENDGAME_SCORE = 100000; // when this is reached, only quads and glass will spawn
+//##################################################### \\
+
+
 import {getCookie, setCookie, checkCookie } from "../cookieManager.js"
 
 
@@ -117,17 +135,6 @@ function StartGame() {
     }
 
     window.addEventListener("resize", endGameOnResize);
-
-    const MAXIMUM_MAX_ENEMY_BURST = 3;
-    const LOSE_ENEMY_COUNT = 20;
-    const ENEMY_COUNT_RED_START = 10; // Number that the enemy count will start getting red at (to indicate that the player is near the death count)
-
-    const START_ENEMY_SPAWN_DELAY = 1700;
-    const MIN_ENEMY_SPAWN_DELAY = 800;
-
-    const ENEMY_SPAWN_DELAY_DECREASE = 20;
-
-    const ENEMY_SPAWN_DELAY_RANDOMNESS_RANGE = 300;
 
     let enemySpawnDelay = START_ENEMY_SPAWN_DELAY;
 
@@ -293,8 +300,6 @@ function StartGame() {
                 }
 
                 // Add quad type if score is high enough \\
-                const QUAD_SPAWN_SCORE = 15000;
-
                 if (score > QUAD_SPAWN_SCORE && !quadCanSpawn) {
                     quadCanSpawn = true;
                     enemyTypes.push({type: "quad", chance: 6})
@@ -344,7 +349,7 @@ function StartGame() {
         // Get Enemy type
         let type;
 
-        if (!(score >= 100000)) {
+        if (!(score >= ENDGAME_SCORE)) {
             if (!typeOverride) {
                 const totalChance = enemyTypes.reduce((sum, e) => sum + e.chance, 0);
                 const randomPercent = Math.random() * totalChance;
