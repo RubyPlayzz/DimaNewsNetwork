@@ -10,7 +10,7 @@ const ENEMY_SPAWN_DELAY_DECREASE = 20; // How much the enemy spawn delay decreas
 
 const ENEMY_SPAWN_DELAY_RANDOMNESS_RANGE = 300; // ignore this ig
 
-const QUAD_SPAWN_SCORE = 15000; // the score that the player will get before quads start spawning
+const QUAD_SPAWN_SCORE = 67; // the score that the player will get before quads start spawning
 
 const ENDGAME_SCORE = 100000; // when this is reached, only quads and glass will spawn
 //##################################################### \\
