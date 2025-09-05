@@ -139,6 +139,13 @@
     font-display: swap;
     font-style: normal;
 }
+
+@font-face {
+    font-family: "DNN-Symbols";
+    src: url("../fonts/DNNSymbols.woff2") format("woff2");
+    font-display: swap;
+    font-style: normal;
+}
 /* ======== Base Styling ============== */
 
 html,
