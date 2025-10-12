@@ -150,14 +150,13 @@ cover_image: "halloween-2025.png"
             document.body.appendChild(image);
 
             var audio = new Audio('{{site.baseurl}}/assets/site-assets/jumpscare.mp3');
-            audio.volume = 0.7;
             audio.play();
 
             setTimeout(() => {
                 image.remove(); 
                 audio.pause(); 
                 halloweenButton.innerText = "I told u not to"
-            }, 6000);
+            }, 2000);
         }, getRandomInt(1204, 4620))
     })
 </script>
