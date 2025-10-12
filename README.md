@@ -1,6 +1,7 @@
 <div align="center">
     <img src="/assets/site-assets/icon-upscaled.png" style="height: 6em">
     <h1>Dima News Network</h1>
+    <p>Halloween version!</p>
 </div>
 
 ## What is it?
