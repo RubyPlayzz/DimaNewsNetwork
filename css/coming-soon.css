@@ -101,6 +101,10 @@ main {
     background-image: url("../assets/site-assets/hammer-enemies/quad.png");
 }
 
+.enemy.bloodquad {
+    background-image: url("../assets/site-assets/hammer-enemies/bloodquad.png");
+}
+
 /* Enemy Animations */
 .enemy.death {
     background-size: auto 100%;
@@ -120,13 +124,13 @@ main {
 
 .enemy.brute.death {
     background-size: auto 100%;
-    animation: sheet-anim 0.3s steps(7) forwards;
+    animation: sheet-anim 0.3s steps(6) forwards;
     background-image: url("../assets/site-assets/hammer-enemies/brute-death.png");
 }
 
 .enemy.glass.death {
     background-size: auto 100%;
-    animation: sheet-anim 0.5s steps(7) forwards;
+    animation: sheet-anim 0.3s steps(5) forwards;
     background-image: url("../assets/site-assets/hammer-enemies/glass-death.png");
 }
 
@@ -141,6 +145,19 @@ main {
     background-size: auto 100%;
     animation: sheet-anim 0.45s steps(7) forwards;
     background-image: url("../assets/site-assets/hammer-enemies/quad-death.png");
+}
+
+.enemy.bloodquad.hit {
+    background-image: url("../assets/site-assets/hammer-enemies/bloodquad-hit.png");
+
+    background-size: auto 100%;
+    animation: hit-anim 0.3s steps(5) forwards;
+}
+
+.enemy.bloodquad.death {
+    background-size: auto 100%;
+    animation: sheet-anim 0.45s steps(7) forwards;
+    background-image: url("../assets/site-assets/hammer-enemies/bloodquad-death.png");
 }
 
 @keyframes hit-anim {
@@ -189,4 +206,23 @@ main {
     flex-direction: column;
 
     display: none;
+}
+
+/* Bloodmoon */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(to bottom, rgb(201, 0, 0), 0.3%, transparent);
+    transition: opacity 1s linear;
+}
+
+body.bloodmoon::before {
+    opacity: 1;
+    transition: opacity 5s linear;
 }

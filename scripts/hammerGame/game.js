@@ -6,13 +6,25 @@ const ENEMY_COUNT_RED_START = 10; // Number that the enemy count will start gett
 const START_ENEMY_SPAWN_DELAY = 1700; // How many miliseconds it takes before enemies will spawn. This is subtracted by ENEMY_SPAWN_DELAY_DECREASE every few kills
 const MIN_ENEMY_SPAWN_DELAY = 800; // The minimum enemy spawn delay
 
-const ENEMY_SPAWN_DELAY_DECREASE = 20; // How much the enemy spawn delay decreases. The spawn delay will decrease around every 2 kills, but this gets higher the more kills you get
+const ENEMY_SPAWN_DELAY_DECREASE = 10; // How much the enemy spawn delay decreases. The spawn delay will decrease around every 2 kills, but this gets higher the more kills you get
 
 const ENEMY_SPAWN_DELAY_RANDOMNESS_RANGE = 300; // ignore this ig
 
-const QUAD_SPAWN_SCORE = 15000; // the score that the player will get before quads start spawning
+const QUAD_SPAWN_SCORE = 30000; // the score that the player will get before quads start spawning
 
 const ENDGAME_SCORE = 100000; // when this is reached, only quads and glass will spawn
+
+const enemyScores = {
+    "basic": 100,
+    "brute": 200,
+    "glass": 0,
+    "quad": 250,
+    "bloodquad": 666,
+}
+// [HALLOWEEN 2025] \\
+const BLOODMOON_START_SCORE = 15000; // When this score is reached, bloodmoon will start
+const BLOODMOON_END_SCORE = 35000;
+const MAX_CONCURRENT_BLOODQUADS = 2; 
 //##################################################### \\
 
 
@@ -294,6 +306,18 @@ function StartGame() {
                         EndGame(false, "glass");
                         break
                     }
+                    case "bloodquad": {
+                        KillEnemy();
+                        const index = spawnedBloodquads.indexOf(enemy);
+                        if (index !== -1) {
+                            spawnedBloodquads.splice(index, 1);
+
+                            if (spawnedBloodquads.length < MAX_CONCURRENT_BLOODQUADS) {
+                                bloodmoonEnemyTypes.push(bloodquadProfile);
+                            }
+                        }
+                        break;
+                    }
                     default: {
                         KillEnemy()
                     }
@@ -315,6 +339,17 @@ function StartGame() {
                     if (maxEnemyBurstCount < MAXIMUM_MAX_ENEMY_BURST) maxEnemyBurstCount++;
                     enemyBurstSpawnIncreaseFactor += 3;
                 }
+
+                // Bloodmoon (Halloween 2025) \\
+
+
+                if (score >= BLOODMOON_END_SCORE) {
+                    document.body.classList.remove("bloodmoon");
+                    inBloodmoon = false;
+                } else if (score >= BLOODMOON_START_SCORE) {
+                    document.body.classList.add("bloodmoon");
+                    inBloodmoon = true;
+                }
             }
         }
     }
@@ -333,29 +368,44 @@ function StartGame() {
     let enemyTypes = [
         { type: "basic", chance: 60 },
         { type: "brute", chance: 30 },
-        { type: "glass", chance: 10 }
+        { type: "glass", chance: 10 },
+        // Quad is added later in code \\
     ]
-    const enemyScores = {
-        "basic": 100,
-        "brute": 200,
-        "glass": 0,
-        "quad": 250,
-    }
+
+    let inBloodmoon = false;
+    let spawnedBloodquads = [];
+
+    let bloodquadProfile = { type: "bloodquad", chance: 55 };
+    let bloodmoonEnemyTypes = [
+        { type: "basic", chance: 40 },
+        { type: "brute", chance: 40 },
+        { type: "glass", chance: 5 },
+        { type: "quad", chance: 25 },
+        bloodquadProfile
+    ]
 
     function SpawnEnemy(disableLogic, typeOverride) {
         const enemy = document.createElement("div");
 
         enemy.classList.add("enemy");
-        // Get Enemy type
+
+        // Get Enemy type \\
         let type;
+        let currentEnemyTypes = enemyTypes;
+
+        if (inBloodmoon) currentEnemyTypes = bloodmoonEnemyTypes;
 
         if (!(score >= ENDGAME_SCORE)) {
             if (!typeOverride) {
-                const totalChance = enemyTypes.reduce((sum, e) => sum + e.chance, 0);
+                if (inBloodmoon && spawnedBloodquads.length >= MAX_CONCURRENT_BLOODQUADS) {
+                    currentEnemyTypes = currentEnemyTypes.filter(e => e.type !== "bloodquad");
+                }
+
+                const totalChance = currentEnemyTypes.reduce((sum, e) => sum + e.chance, 0);
                 const randomPercent = Math.random() * totalChance;
                 let cumulative = 0;
 
-                for (const enemy of enemyTypes) {
+                for (const enemy of currentEnemyTypes) {
                     cumulative += enemy.chance;
                     if (randomPercent < cumulative) {
                         type = enemy.type;
@@ -378,6 +428,11 @@ function StartGame() {
         }
 
         enemy.classList.add(type);
+
+        // Rotate brute randomly (halloween 2025) \\
+        if (type === "brute") {
+            enemy.style.transform = `rotate(${getRandomInt(0, 360)}deg) translate(-50%, -50%)`
+        }
 
         // Set position \\
         const pos = GetRandomPos();
@@ -409,6 +464,24 @@ function StartGame() {
             case "quad": {
                 enemy.dataset.lives = 4;
                 break;
+            }
+            case "bloodquad": {
+                if (spawnedBloodquads.length < MAX_CONCURRENT_BLOODQUADS) {
+                    spawnedBloodquads.push(enemy);
+
+                    const rect = enemy.getBoundingClientRect();
+
+                    RunBloodquadMovement(enemy, rect.x, rect.y);
+                    
+                    if (spawnedBloodquads.length >= MAX_CONCURRENT_BLOODQUADS) {
+                        const index = bloodmoonEnemyTypes.indexOf(bloodquadProfile)
+
+                        if (index !== -1) {
+                            bloodmoonEnemyTypes.splice(index, 1);
+                        }
+                    }
+                }
+                break
             }
             case "glass": {
                 // Remove after 10 seconds \\
@@ -454,6 +527,106 @@ function StartGame() {
 
     SpawnEnemyTimeout()
 
+    function RunBloodquadMovement(bloodquad, centerX, centerY) {
+        const radius = 100;
+        
+        let angle = 0;
+
+        function Exit() {
+            const index = spawnedBloodquads.indexOf(bloodquad);
+
+            if (index !== -1) {
+                spawnedBloodquads.splice(index, 1);
+
+                if (spawnedBloodquads.length < MAX_CONCURRENT_BLOODQUADS) {
+                    bloodmoonEnemyTypes.push(bloodquadProfile);
+                }
+            }
+        };
+
+        const variationIndexAmount = 4;
+        const variationIndex = getRandomInt(1, variationIndexAmount);
+
+        // Variation indexes look a bit like this:
+        // 1: Bouncy
+        // 2: Circle
+        // 3: Infinity Sign
+        // 4: Oval
+
+        function GetPos() {
+            switch (variationIndex) {
+                case 1: {
+                    const x = centerX + radius * Math.cos(angle / 1.5);
+                    const y = centerY + radius * Math.sin(angle * 1.5);
+
+                    return {x: x, y: y}
+                }
+                case 2: {
+                    const x = centerX + radius * Math.cos(angle);
+                    const y = centerY + radius * Math.sin(angle);
+
+                    return {x: x, y: y}
+                }
+                case 3: {
+                    const x = centerX + radius * Math.cos(angle);
+                    const y = centerY + radius * Math.sin(angle * 2);
+
+                    return {x: x, y: y}
+                }
+                case 4: {
+                    const radiusX = radius;      // horizontal radius
+                    const radiusY = radius * 0.6; // vertical radius (stretch factor)
+
+                    const x = centerX + radiusX * Math.cos(angle);
+                    const y = centerY + radiusY * Math.sin(angle);
+
+                    return {x, y};
+                }
+
+            }
+        }
+
+        const variationIndexSpeeds = {
+            1: {
+                min: 10,
+                max: 12
+            },
+            2: {
+                min: 10,
+                max: 17,
+            },            
+            3: {
+                min: 10,
+                max: 15,
+            },
+            4: {
+                min: 10,
+                max: 15,
+            }
+        }
+
+        
+        let speed = getRandomInt(
+            variationIndexSpeeds[variationIndex].min,
+            variationIndexSpeeds[variationIndex].max
+        ) / 1000;
+
+        console.log(variationIndex);
+        function animate() {
+            if (!bloodquad) {Exit(); return;};
+            if (bloodquad.classList.contains("death")) {Exit(); return;};
+            if (stopSpawning) {Exit(); return;};
+
+            const {x, y} = GetPos()
+
+            bloodquad.style.left = x + 'px';
+            bloodquad.style.top = y + 'px';
+            angle += speed; // speed
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    }
 
     function EndGame(dontAnimate = false, enemyTypeAnimationOverride) {
         // Player has lost! \\
@@ -493,6 +666,8 @@ function StartGame() {
             gameUI.style.display = "none";
 
             enemyUI.style.color = "";
+
+            document.body.classList.remove("bloodmoon");
         }
 
         // #### Animation #####
