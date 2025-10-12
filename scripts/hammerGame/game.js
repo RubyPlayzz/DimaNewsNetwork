@@ -26,8 +26,6 @@ const BLOODMOON_START_SCORE = 15000; // When this score is reached, bloodmoon wi
 const BLOODMOON_END_SCORE = 35000;
 const MAX_CONCURRENT_BLOODQUADS = 2; 
 //##################################################### \\
-
-
 import {getCookie, setCookie, checkCookie } from "../cookieManager.js"
 
 
