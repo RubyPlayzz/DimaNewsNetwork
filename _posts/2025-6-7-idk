@@ -1,0 +1,162 @@
+---
+title: "DNN Halloween Makeover???"
+title_short: "DNN Halloween Makeover???"
+layout: "article"
+author: "nisio"
+article_tags:
+    - ["Coding", "3E424B"]
+cover_image: "halloween-2025.png"
+---
+<p>For halloween, Dima News Network has gotten a fresh look to celebrate.</p>
+<p>Heres what the team has done for this years halloween!</p>
+
+<h1>Homepage & Icons</h1>
+<figure>
+    <img src={{"images/Halloween-2025/homepage.png" | absolute_url }} alt="The homepage of Dima News Network, decorated for halloween 2025.">
+    <figcaption>DNN Halloween Homepage</figcaption>
+</figure>
+<br>
+<ul>
+    <li>All of our official branding has gone from pink to orange!</li>
+    <li>You may also notice a light orange gradient at the top of the home page. Looks pretty cool</li>
+</ul>
+
+<h1>Hammer Game</h1>
+
+<p>If you didn't know, DNN has a easter egg on the coming soon page.</p>
+<p>This page is accessed by going to the <code>More</code> or <code>Stories</code> sections.</p>
+
+<br>
+<p>You are able to click the hammer to begin a secret mini-game!</p>
+    
+<img src={{"images/Halloween-2025/image.png" | absolute_url }} alt="The DNN coming soon page.">
+
+<p>Heres everything that was added to the hammer game for halloween:</p>
+
+<h2>Enemy Redesigns</h2>
+
+<p>Many enemies got spooky redesigns for halloween!</p>
+
+<div class="halloween-2025-enemy-cards">
+    <div class="halloween-2025-enemy-redesign-card">
+        <img src={{"assets/site-assets/hammer-enemies/basic.png" | absolute_url }} class="pixelated-img">
+        <div class="halloween-2025-enemy-info">
+            <h1>Basic</h1>
+            <ul>
+                <li>This enemy is now a pumpkin!</li>
+                <li>Designed by our very own RubyPlayzz!!!</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="halloween-2025-enemy-redesign-card">
+        <img src={{"assets/site-assets/hammer-enemies/brute.png" | absolute_url }} class="pixelated-img">
+        <div class="halloween-2025-enemy-info">
+            <h1>Brute</h1>
+            <ul>
+                <li>Now a spider!</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="halloween-2025-enemy-redesign-card">
+        <img src={{"assets/site-assets/hammer-enemies/glass.png" | absolute_url }} class="pixelated-img">
+        <div class="halloween-2025-enemy-info">
+            <h1>Glass</h1>
+            <ul>
+                <li>Now wrapped in bandages!</li>
+                <li>Still super fragile</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="halloween-2025-enemy-redesign-card">
+        <img src={{"assets/site-assets/hammer-enemies/quad.png" | absolute_url }} class="pixelated-img">
+        <div class="halloween-2025-enemy-info">
+            <h1>Quad</h1>
+            <ul>
+                <li>The quad is the same in the halloween update.</li>
+                <li>This is mainly so it isn't confused with the newest enemy.</li>
+                <li>More on this soon...</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h2>New game-event...</h2>
+<p>A new event has been added when you reach <strong><em>15,000</em></strong> score... Bloodmoon!</p>
+<figure>
+    <img src={{"images/Halloween-2025/bloodmoon-happening.png" | absolute_url }} alt="A screenshot of a bloodmoon occuring.">
+    <figcaption>The bloodmoon.</figcaption>
+</figure>
+
+<br>
+<p>During a bloodmoon, more difficult enemies will spawn more frequently. Quads will also begin spawning.</p>
+<p>When a bloodmoon occurs, a new enemy also spawns...</p>
+
+<div class="halloween-2025-enemy-cards">
+    <div class="halloween-2025-enemy-redesign-card">
+        <img src={{"assets/site-assets/hammer-enemies/bloodquad.png" | absolute_url }} class="pixelated-img">
+        <div class="halloween-2025-enemy-info">
+            <h1>Bloodquad</h1>
+            <ul>
+                <li>The bloodquad is a new enemy that spawns during the bloodmoon.</li>
+                <li>Unlike a normal quad, it only takes 1 hit to kill.</li>
+                <li>However, the bloodquad can move.</li>
+                <li>It can move in:
+                    <ul>
+                        <li>Circles,</li>
+                        <li>Waves,</li>
+                        <li>or in Ovals.</li>
+                    </ul>
+                </li>
+                <li>Only 2 bloodquads can be alive at once.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h1>End</h1>
+<p>That was everything that was added in the 2025 halloween update.</p>
+<p>Maybe we'll do more of these for things like Christmas or next halloween.</p>
+<br>
+<p>Happy Halloween!</p>
+
+<div style="margin-top: 300em;"></div>
+<button id="halloween-2025-button">Don't click this button</button>
+
+<script>
+    // My bad \\
+    const halloweenButton = document.getElementById("halloween-2025-button");
+    let buttonClicked = false;
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    halloweenButton.addEventListener("click", () => {
+        if (buttonClicked) return;
+        buttonClicked = true;
+
+        setTimeout(() => {
+            const image = document.createElement("img");
+
+            image.src = "{{site.baseurl}}/assets/site-assets/freddy.png"
+            image.classList.add("freddy");
+            image.classList.add("pixelated-img");
+
+            document.body.appendChild(image);
+
+            var audio = new Audio('{{site.baseurl}}/assets/site-assets/jumpscare.mp3');
+            audio.play();
+
+            setTimeout(() => {
+                image.remove(); 
+                audio.pause(); 
+                halloweenButton.innerText = "I told u not to"
+            }, 1400);
+        }, getRandomInt(1204, 3220))
+    })
+</script>
