@@ -1,0 +1,28 @@
+<div class="code-block" {% if include.preview %} data-includes-preview="true" {% endif %}>
+    <div class="code-block-header">
+        <p>{{ include.lang-name | default: include.lang }}</p>
+        <div class="right-side">
+            {% if include.preview %}
+            <button class="code-reset-button" data-value="{{include.content}}">Reset</button>
+            {% else %}
+            <button class="code-copy-button" data-value="{{include.content}}">Copy</button>
+            {% endif %}
+        </div>
+    </div>
+    <div class="code-block-bottom">
+        <div class="code-block-content" data-lang="{{ include.lang | default: 'text' }}" data-content="{{ include.content }}">
+            {% if include.preview %}
+            <div class="editor-loading-indicator">
+                <img src="{{site.baseurl}}/assets/site-assets/icon-fill.png" class="pixelated-img">
+                <p>Loading Editor...</p>
+            </div>
+            {% else %}
+            <pre>{{ include.content | escape }}</pre>
+            {% endif %}
+        </div>
+        {% if include.preview %}
+        <iframe class="code-block-preview" width="300" srcdoc="{{ include.content }}">
+        </iframe>
+        {% endif %}
+    </div>
+</div>

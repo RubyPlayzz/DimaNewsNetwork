@@ -1,12 +1,17 @@
 ---
 ---
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title_short }}</title>
+    <title>DNN - {{ page.title_short }}</title>
     <link rel="stylesheet" href="{{ site.baseurl }}/css/styles.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/css/news-article.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/css/article-tag-colors.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
 
     <meta property="og:title" content="{{ page.title_short }}">
     <meta property="og:description" content="Dima News Network | The best news, the Dima News.">
@@ -14,7 +19,6 @@
     <meta property="og:url" content="{{site.baseurl}}{{ page.url }}">
     <meta property="og:type" content="website">
 
-    
     <link rel="apple-touch-icon" sizes="32x32" href="{{ site.baseurl }}/assets/site-assets/icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/site-assets/icon-fill.png">
 </head>
@@ -49,6 +53,96 @@
     </main>
     {% include footer.html %}
 </body>
+
 <script src="{{ site.baseurl }}/scripts/tableOfContents.js"></script>
+
+<!-- Code Blocks -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+<link rel="stylesheet" href="{{ site.baseurl }}/css/code-theme-codemirror.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<link rel="stylesheet" href="{{ site.baseurl }}/css/code-theme-hljs.css">
+
+<script type="module">
+    import { basicSetup } from "https://esm.sh/codemirror"
+    import { EditorView } from "https://esm.sh/@codemirror/view"
+
+    import { html } from "https://esm.sh/@codemirror/lang-html"
+    import { javascript } from "https://esm.sh/@codemirror/lang-javascript"
+    import { css } from "https://esm.sh/@codemirror/lang-css"
+
+    import {oneDark} from "https://esm.sh/@codemirror/theme-one-dark"
+
+    document.querySelectorAll(".code-block-content").forEach((element) => {
+        const preview = element.parentElement.querySelector(".code-block-preview");
+        const lang = element.dataset.lang;
+
+        if (preview) {
+            const langMap = {
+                'html': html(),
+                'javascript': javascript(),
+                'css': css()
+            };
+            const onChange = (update) => {
+                if (!preview) return;
+                if (!update.docChanged) return;
+
+                const newCode = update.state.doc.toString();
+                
+                preview.srcdoc = newCode;
+                console.log(newCode)
+            }
+
+            const view = new EditorView({
+                doc: element.dataset.content,
+                parent: element,
+                extensions: [
+                    basicSetup,
+                    langMap[lang],
+                    oneDark,
+                    EditorView.updateListener.of(onChange),
+                ]
+                
+            });
+
+            const loadingIndicator = element.querySelector(".editor-loading-indicator");
+            loadingIndicator.remove();
+
+            // Reset Button \\
+            const resetButton = element.parentElement.parentElement.querySelector(".code-reset-button");
+
+            function setCode(newCode) {
+            view.dispatch({
+                changes: { from: 0, to: view.state.doc.length, insert: newCode }
+            });
+            }
+            if (resetButton) {
+                console.log("button exists")
+                resetButton.addEventListener("click", () => {
+                    setCode(element.dataset.content)
+                })
+            }
+        } else {
+            if (lang) {
+                const result = hljs.highlight(element.textContent, { language: lang });
+                element.innerHTML = result.value;
+                element.classList.add('hljs', lang);
+            } else {
+                const result = hljs.highlightAuto(element.textContent);
+                element.innerHTML = result.value;
+                element.classList.add('hljs', result.language);
+            }
+        }
+        
+
+    });
+
+    // Copy Button \\
+    document.querySelectorAll(".code-copy-button").forEach((button) => {
+        button.addEventListener("click", () => {
+            navigator.clipboard.writeText(button.dataset.value);
+        })
+    });
+    </script>
 
 </html>

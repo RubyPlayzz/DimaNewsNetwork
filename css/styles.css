@@ -269,3 +269,21 @@ a.unstyled-link {
 .link-alt:active {
     color: var(--alt-link-active);
 }
+
+button {
+    color: var(--button-text);
+    background-color: var(--button-primary);
+    padding: 0.2rem;
+
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--button-primary-hover);
+}
+
+button:active {
+    background-color: var(--button-primary-active);
+}

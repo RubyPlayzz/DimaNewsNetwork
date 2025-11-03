@@ -4,6 +4,7 @@
     --text-secondary: rgb(174, 174, 174);
     --background: rgb(32, 32, 32);
     --accent: rgb(255, 137, 137);
+    --header-link-hover: rgba(70, 70, 70, 1);
 
     --link: rgb(79, 193, 255);
     --link-visited: rgb(79, 193, 255);
@@ -23,13 +24,17 @@
 
     --border-radius: 5px;
 
-    --button-primary: rgb(40, 40, 40);
-    --button-primary-hover: rgba(70, 70, 70, 1);
+    --button-primary: rgb(240, 240, 240);
+    --button-text: rgb(10, 10, 10);
+    --button-primary-hover: rgb(199, 199, 199);
+    --button-primary-active: rgb(167, 167, 167);
 
     --icon-filter: brightness(100%); /* This turns icons white */
 
     --nisio: #8a95ff;
+    --code-bg: #282c34;
 }
+
 /* Header/Footer */
 :root {
     --header-color: rgba(30, 30, 30, 0.9);
@@ -42,7 +47,7 @@
 }
 /* Table of contents */
 :root {
-    --active-table-of-contents-item: rgb(118, 28, 28);
+    --active-table-of-contents-item: #631919;
     --active-table-of-contents-item-border: rgb(255, 137, 137);
     --active-table-of-contents-item-text: var(--text-primary);
 }
@@ -51,7 +56,7 @@
     --tag-red: #ff4242;
     --tag-orange: #ff7e42;
     --tag-yellow: #ffc124;
-    --tag-green: #19e749;
+    --tag-green: #00c12d;
     --tag-light-blue: #4dc9ff;
     --tag-blue: #3543ff;
     --tag-purple: #b43bff;

@@ -98,7 +98,7 @@ header .title-holder .title-img-holder {
 }
 
 .header-navigation > *:hover {
-    background-color: var(--button-primary-hover);
+    background-color: var(--header-link-hover);
     cursor: pointer;
 }
 
@@ -123,7 +123,7 @@ header .title-holder .title-img-holder {
 }
 
 #link-hamburger-menu:hover {
-    background-color: var(--button-primary-hover);
+    background-color: var(--header-link-hover);
 }
 
 #link-hamburger-menu img {
@@ -205,7 +205,7 @@ header .title-holder .title-img-holder {
 }
 
 #theme-selector:hover {
-    background-color: var(--button-primary-hover);
+    background-color: var(--header-link-hover);
     cursor: pointer;
 }
 

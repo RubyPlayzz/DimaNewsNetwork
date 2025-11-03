@@ -4,6 +4,7 @@
     --text-secondary: rgba(111, 111, 111, 1);
     --background: rgb(255, 255, 255);
     --accent: rgb(255, 137, 137);
+    --header-link-hover: rgb(205, 205, 205);
 
     --link: rgba(30, 176, 255, 1);
     --link-visited: rgba(30, 176, 255, 1);
@@ -23,13 +24,15 @@
 
     --border-radius: 5px;
 
-    --button-primary: rgb(160, 160, 160);
-    --button-primary-hover: rgb(205, 205, 205);
+    --button-primary: rgb(216, 216, 216);
+    --button-text: rgb(10, 10, 10);
+    --button-primary-hover: rgb(187, 187, 187);
+    --button-primary-active: rgb(175, 175, 175);
 
     --icon-filter: brightness(0%); /* This turns icons black */
 
     --nisio: #8a95ff;
-
+    --code-bg: #282c34;
 }
 /* Header/Footer */
 :root {
