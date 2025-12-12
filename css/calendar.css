@@ -8,7 +8,6 @@ body {
     overflow-x: hidden;
 
     background-image: linear-gradient(to bottom, var(--christmas-snowflake-bg-highlight), transparent 20%);
-    background-attachment: fixed;
     background-size: 100% 100vh;
 }
 

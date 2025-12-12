@@ -99,10 +99,16 @@ function CreateSnowflakes() {
 CreateSnowflakes();
 
 window.addEventListener("resize", () => {
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-
-    CreateSnowflakes()  
+    const newWidth = window.innerWidth;
+    const newHeight = window.innerHeight;
+    
+    if (canvas.height !== newHeight) {
+        canvas.height = newHeight;
+    }
+    
+    if (canvas.width !== newWidth) {
+        canvas.width = newWidth;
+        CreateSnowflakes();
+    }
 });
-
 requestAnimationFrame(snowflakeLoop)

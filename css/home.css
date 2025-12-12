@@ -120,9 +120,9 @@ body .calendar-notice {
 /* Card Contents */
 .card > img {
     display: block;
-    width: 100%;        /* take the full card width */
-    height: auto;       /* allow height to adjust based on width */
-    object-fit: cover;  /* crop or scale image to fill the container */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
     border-bottom: 1px solid var(--box-border-color);
     margin: 0;
 
