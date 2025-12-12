@@ -102,13 +102,12 @@ window.addEventListener("resize", () => {
     const newWidth = window.innerWidth;
     const newHeight = window.innerHeight;
     
-    if (canvas.height !== newHeight) {
-        canvas.height = newHeight;
-    }
-    
     if (canvas.width !== newWidth) {
         canvas.width = newWidth;
         CreateSnowflakes();
-    }
+    };
+
+    canvas.width = newWidth;
+    canvas.height = newHeight;
 });
 requestAnimationFrame(snowflakeLoop)
