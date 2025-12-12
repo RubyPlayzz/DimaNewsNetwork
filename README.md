@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="/assets/site-assets/icon-upscaled.png" style="height: 6em">
+    <img src="/assets/site-assets/snowcat.png" style="height: 10em">
     <h1>Dima News Network</h1>
     Christmas 2025
 </div>
