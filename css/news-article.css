@@ -1,91 +1,10 @@
-:root {
-    --header-size: 60px;
-    --content-top-margin: 0px;
-    --table-of-contents-top-margin: 10px;
-}
-
-
-/* Table of contents */
-nav {
-    position: sticky;
-    top: calc(var(--header-size) + var(--table-of-contents-top-margin));
-    bottom: 0;
-    height: calc(100vh - var(--header-size));
-    overflow-y: auto;
-}
-
-#table-of-contents-items {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-#table-of-contents-items a {
-    display: inline-block;
-    width: auto;
-
-    padding-left: 1em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    padding-right: 1em;
-
-    border-left: 2px solid var(--text-secondary);
-    color: var(--text-secondary);
-    text-decoration: none;
-
-}
-
-#table-of-contents-items a:hover {
-    color: rgb(255, 137, 137);
-}
-
-#table-of-contents-items a.activeTableOfContentItem {
-    border-left: 2px solid var(--active-table-of-contents-item-border);
-    background-color: var(--active-table-of-contents-item);
-    color: var(--active-table-of-contents-item-text);
-    border-top-right-radius: var(--border-radius);
-    border-bottom-right-radius: var(--border-radius);
-    font-family: "Satoshi-Medium",
-        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
-        sans-serif;
-    ;
-}
-
-/* Article specific styling */
-main {
-    display: grid;
-    column-gap: 20px;
-    grid-template-columns: 200px minmax(0, 1fr) 200px;
-    margin: auto;
-    width: 100%;
-    max-width: 1500px;
-}
-
-@media screen and (max-width: 60rem) {
-    #content-empty {
-        display: none;
-    }
-
-    nav {
-        display: none;
-    }
-
-    main {
-        padding: 0 2rem;
-        grid-template-columns: minmax(0, 1fr);
-    }
-}
-
-.article-card-tags {
-    margin: 0;
-}
-
-#article-title {
+/* Article title */
+.article-title {
     margin-top: 0;
     font-family: "Stardom-Regular", Times, serif;
 }
 
-#article-info {
+.article-info {
     display: flex;
     width: 100%;
     height: auto;
@@ -94,12 +13,16 @@ main {
     margin-bottom: 0.1em;
 }
 
-#article-info p.article-info-item {
+.article-info p.article-info-item {
     color: var(--text-secondary);
     font-style: italic;
 }
 
+.article-card-tags {
+    margin: 0;
+}
 
+/* Article styling */
 article hr {
     margin: 0;
     border-color: var(--text-secondary);

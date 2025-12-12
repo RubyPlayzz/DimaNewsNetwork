@@ -1,0 +1,690 @@
+---
+title: "RubyPlayzz’s Guide To HTML"
+title_short: "RubyPlayzz's HTML Guide"
+layout: "article"
+author: "RubyPlayzz"
+article_tags:
+- ["GUIDE", "green"]
+- ["CHRISTMAS 2025", "red"]
+cover_image: "html-guide.png"
+---
+<p>
+    Hey there! Wanna learn coding a website? Don’t want it to take forever to start
+    making simple HTML websites? Wanna make coding easy?
+</p>
+<br>
+
+<p>
+    Well than look no further! In this article I am going to teach you HTML from an
+    experienced coder (who originally created the html for the article layouts).
+    <br>
+    <br>
+    Most of the code here examples are editable, so you can try messing around and editing them.
+</p>
+
+<h1>1. The Basics</h1>
+
+<p>
+    So to start this off, we'll learn the basics of HTML.
+</p>
+
+<h2>Making an element</h2>
+
+<p>
+    To start this off you need to know how to make a basic element like this:
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<p>Reginald is in the floor.</p>"
+%}
+
+<p class="secondary" style="display: flex; justify-content: center;">
+    Try changing "Reginald is in the floor." to something else.
+</p>
+
+<br>
+<p>
+    You first have to do the opening tag. The text inside corresponds to what type of element it is
+    (<code>p</code> for paragraph, in this case.)
+</p>
+
+<br>
+<p>
+    Once you enter the content of your tag, you close the tag by repeating what you did for the opening tag, but adding a backslash (/) before the letter
+</p>
+
+<br>
+
+<h2>Attributes</h2>
+
+<p>Elements can also have attributes:</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=false content=
+"<p class='note'>Reginald is in the floor.</p>"
+%}
+
+<p>
+    Attributes can be very useful. They give extra information to an element.
+</p>
+<br>
+
+<p>
+    In this example, the <code>class</code> attribute is added to the element, which is used to identify an element so it can be styled.
+    <br>
+    <br>
+    Some elements require attributes to be visible, for example <code>img</code> elements. You'll learn more about these soon.
+</p>
+
+
+<h1>2. Text</h1>
+
+<p>
+    We've already learned how to add a paragraph like this:
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<p>Hi this is a paragraph</p>"
+%}
+
+<p>
+    But our page would look boring and harder to read if it was all just paragraphs. We can use <code>&lth1&gt</code> tags (short for heading 1). 
+    We can also use 
+    <code>&lth2&gt</code>, 
+    <code>&lth3&gt</code>, 
+    <code>&lth4&gt</code>, 
+    <code>&lth5&gt</code> and 
+    <code>&lth6&gt</code>
+     for headings at lower levels.
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<h1>Level 1 heading</h1>
+<h2>Level 2 heading</h2>
+<h3>Level 3 heading</h3>
+<h4>Level 4 heading</h4>
+<h5>Level 5 heading</h5>
+<h6>Level 6 heading</h6>"
+%}
+
+<p>
+    Now if you want to add italic, bold or underlined text, you can put these tags 
+    in with the text. For italic you use <code>&ltem&gt</code> or <code>&lti&gt</code>, for bold you would use
+    <code>&ltstrong&gt</code> or <code>&ltb&gt</code> and to underline your text you can use <code>&ltmark&gt</code> or <code>&ltu&gt</code>, Here’s an
+    example
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<p>This is how a <em>emphasised</em> looks like</p>
+<p>Here’s what <strong>strong</strong> looks like</p>
+<p>And finally here’s <mark>underlined</mark> text</p>
+<p><strong><em>Strong and emphasised text!!!</em></strong></p>"
+%}
+
+
+<p>
+    You can also use <code>&ltb&gt</code> tags for bold, <code>&lti&gt</code> tags for italic and
+    <code>&ltu&gt</code> tags for underlined text.
+</p>
+
+<br>
+
+<p>
+    However, screenreaders (a tool used by people with visual impairments which read out the webpage)
+    recognise <code>&ltem&gt</code>, <code>&ltstrong&gt</code> and <code>&ltmark&gt</code> tags and
+    read them out differently.
+</p>
+<br>
+
+<p>
+    For this reason, its better to use those <code>&ltem&gt</code>, <code>&ltstrong&gt</code> and <code>&ltmark&gt</code>,
+    unless you are making text look different purely for decoration.
+</p>
+
+<p>Next we’ll find out how to:</p>
+<ul>
+    <li>How to add &lt and &gt</li>
+    <li>How to add code as a text without interfering without your code,</li>
+    <li>How to add contact details using html,</li>
+    <li>How to add a site from where you referenced a piece of text or quote,</li>
+    <li>How to add quotation marks wrapped around text,</li>
+    <li>How to add abbreviations,</li>
+    <li>How to indicate time on a website,</li>
+    <li>How to add subscript and superscript.</li>
+</ul>
+
+<p>This might all seem a ton but its nothing too much.</p>
+
+<p>To add &lt&gt you can use &lt; and &gt; (lt – less than,
+gt – greater than)</p>
+
+<p>
+    For example: &ltp&gt
+</p>
+
+<p>
+    To do the code tag you do &lt;code&gt;&lt/p&gt
+</p>
+
+<p>
+    It would look like this on the website – To do a code tag you do &ltcode&gt
+</p>
+
+<p>
+    To add code as a text on your website you do the &ltcode&gt tag, for example
+</p>
+
+<p>
+    &lth4&gtFor a paragraph you can do &ltcode&gt&ltp&gtparagraph&lt/p&gt&lt/code&gt like that &lt/h4&gt
+</p>
+
+<p>
+    Only the &lth4&gt and &ltcode&gt tag get noticed by your website but the &ltp&gt tag stays as
+    normal text
+</p>
+
+<p>
+    To add contact info for example you can use the &ltaddress&gt tag like this
+    &ltaddress&gt
+    &ltp&gt Name: RubyPlayzz
+    Website: dima.news &lt/p&gt
+    &lt/address&gt
+    You can use this for any contact info you need (e.g. Name, Address, Number, Email
+    etc.)
+</p>
+
+<p>
+    To reference a site you can use the cite attribute, you would usually use this when
+    you are taking a quote from a website or you are taking any piece of info/text, for
+    example:
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<p>
+    Here’s the <a href='https://dima.news/'><cite>Dima News Network</cite></a> news from today     
+</p> 
+<blockquote cite='https://dima.news/article/Halloween'> 
+    <p>Today is halloween here’s what team has done for halloween</p> 
+</blockquote>"
+%}
+
+<p>This is useful for quoting stuff from websites and giving them credit</p>
+
+<p>To add quotation marks around a quote or text you can use the &ltq&gt tag for example:</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=false content=
+"<q>Hope is a thing with feathers, that pearches in the soul</q>"
+%}
+
+<p>To add abbreviations you add the &ltabbr&gt tag for example:</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=false content=
+"<p>We use <abbr>HTML</abbr> to make websites using coding</p> "
+%}
+
+<p>
+    You can add time using the &lttime&gt tag, this is useful to indicate time on a website,
+    for example:
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=false content=
+"<time datetime: 14-10-2025>14 October 2025</time> "
+%}
+
+<p>
+    Now finally, to add superscript or subscript you can use, &ltsub&gt for subscript and
+    &ltsup&gt for superscript, this is useful for writing down dates, chemical formulae and
+    mathematical equations, here’s some examples:
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<h1>Water’s Chemical formula is H<sub>2</sub>O</h1> 
+<p>Today’s date is October 14<sup>th</sup> 2025</p> 
+<h3>If x<sub>3</sub> is 27, then x is 3</h3>"
+%}
+
+<p>
+    So now you bassicaly know everything about text let’s move on to the next chapter
+</p>
+
+<h1>
+    3. Images, Videos and Audio
+</h1>
+
+<p>
+    So the website still looks pretty boring with only text on it so let’s add an image, to
+    add a image you can use the &ltimg&gt tag, the &ltimg&gt tag is a void element (it dosen’t
+    have an ending tag),
+</p>
+
+<p>For example if you have a picture called “DNN.png” this is how the code would look:</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<img src=https://example.com/images/DNN.png  
+alt='Dima News Network Logo'>"
+%}
+
+<p>If your image is in a subdirectory (folder) called “Images” you can do this instead</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<img src=“images/DNN.png  
+alt='Dima News Network Logo'>"
+%}
+
+<p>
+    Now let’s see how you can add a caption to your image, resize your image and give
+    it a title.
+</p>
+
+<p>
+    So if you want to resize your image you just have to use width, and length like this
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<img src=https://example.com/images/DNN.png  
+    alt='Dima News Network Logo'
+    width='128' 
+    length='128'
+>"
+%}
+
+<p>
+    Now to add a caption and a title you have to make your &ltimg&gt a figure by wrapping it
+    around the &ltfigure&gt tag and to give your Image a caption you give it a &ltfigcaption&gt
+    tag, here’s how all that looks like
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<figure> 
+    <img src='images/DNN.png'
+        alt='Dima News Network Logo' 
+        width='128' 
+        length='128' 
+        title='DNN Logo'
+    > 
+    <figcaption>The Dima News Network Logo</figcaption> 
+</figure>"
+%}
+
+<p>
+    Now if you want to add a video you can use the &ltvideo&gt tag and it works almost
+    exactly the same as the &ltimg&gt tag, Here’s an example on how the &ltvideo&gt tag looks
+    like
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<video src='DNNTrailer.mp4'>"
+%}
+
+<p>
+    But if you want to add controls then it will look something like this
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<video 
+    src='DNNTrailer.mp4'
+    controls 
+    width='1920' 
+    height='1080' 
+    autoplay 
+    loop 
+    muted 
+    preload='auto' 
+    poster='DNNLogo.png'
+>"
+%}
+
+<p>Here’s what all these controls mean</p>
+
+<p>Width and Length just set the size of the video</p>
+
+<p>Autoplay plays the video automatically</p>
+
+<p>Loop just make the video loop</p>
+
+<p>Muted just mutes the video</p>
+
+<p>Poster is just a cover image for the video</p>
+
+<p>Preload is used for buffering large files, it has 3 values</p>
+
+<ul>
+    <li>“None” does not buffer the file</li>
+    <li>“Auto” buffers the file automatically</li>
+    <li>“Metadata” buffers only the metadata for the video</li>
+</ul>
+
+<p>
+    Now to add some subtitles you have to add a .VTT file to your html code, a .VTT file
+    looks something like this
+</p>
+
+<code>
+    WEBVVTT
+    1
+    00:00:22:230 —&gt 00:00:24.606
+    This is the first subtitle
+    2
+    00:00:30.739 —&gt 00:00:34.074
+    This is the second subtitle
+</code>
+
+<p>Now to add it to your video you do this</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<video controls> 
+    <source 
+        src='DNNTrailer.mp3'
+        type='video/mp4'
+    > 
+    <track 
+        kind='subtitles' 
+        src='subtitles_es.vtt '
+        srclang='es' 
+        label=“Spanish” 
+    /> 
+</video> "
+%}
+
+<p>
+    Now lets add some audio, so to add audio you use the &ltaudio&gt tag where it’s
+    basically the same as the &ltvideo&gt except for controls there’s no width and length,
+    and theres no poster for example
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<audio controls> 
+    <source src='dnnmenu.mp3' type='audio/mp3' /> 
+</audio> "
+%}
+
+<h1>4. Tables, Links, Forms, Buttons and Lists</h1>
+
+<p>
+    So to do a table you use the &lttable&gt, &lttd&gt (Table Data), &lttr&gt (Table Row) and &ltth&gt
+    (Table Header) tags, You use &lttable&gt to indicate it’s a table, Use &lttd&gt for putting in
+    the data of the table, Use &lttr&gt to make a row and &ltth&gt as a table header, for
+    example
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<table>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Height</th>
+    </tr>
+    <tr>
+        <td>Mark</td>
+        <td>21</td>
+        <td>6’1”</td>
+    </tr>
+    <tr>
+        <td>Max</td>
+        <td>23</td>
+        <td>6’3”</td>
+    </tr>
+</table>"
+%}
+
+<p>
+    That’s how you can make a simple table in html (oh and also don’t use tables as a
+    website layout, just don’t, it just makes everything more complicated for accessibility
+    and more)
+</p>
+
+<p>
+    Now to make a link to something we would need to use either the &lta&gt tag, you also
+    need to add “href” to the &lta&gt tag to indicate what website your referencing to, for
+    example
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<p> 
+    Hello this is a link to 
+    <a href='https://dima.news/'>Dima News Network</a> 
+</p>"
+%}
+
+<p>You can also put the links into a heading</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<a href='https://dima.news/'> 
+    <h1>Dima News Network</h1> 
+</a>"
+%}
+
+And also you can put images as a link!
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<a href='https://dima.news/'> 
+    <img src='DnnLogo.png' alt='Dima News Network Logo'> 
+</a>"
+%}
+
+<p>You can also make it so a title of the link appears when you hover with the mouse</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<p> 
+    Here’s a link to the 
+    <a href='https://dima.news/'
+    title='Dima News Network'>DNN Website</a> 
+</p>"
+%}
+
+<p>
+    Additionally you can use the &lta&gt tag to link it to a document
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<a href='projects/index.html'>This links to a file</a>"
+%}
+
+<p>Now to make a button you just use the &ltbutton&gt tag like this</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<button>This is a button</button>"
+%}
+
+There’s also different button types
+
+<p>
+    &ltbutton type=“submit”&gt - It makes the button a submit button for forms (We’ll learn
+forms later on) but you usually don’t need to declare this unless you have different
+buttons in your form
+</p>
+
+<p>
+    &ltbutton type=“reset”&gt - It makes the button a reset all button for forms, don’t use the
+reset button unless needed because users that fill out these forms typically don’t like
+the reset button because if they fill out a long form and mistake the submit button for
+the reset button, it would just be annoying, so just don’t use it.
+</p>
+
+<p>
+    &ltbutton type=“button”&gt - It makes a button, a button outside the &ltform&gt elements,
+     you need to apply JavaScript to make the button do something, but you’ll
+    learn JavaScript later on while you’re learning the basics of web coding
+</p>
+
+<p>Now moving on to lists,</p>
+
+<p>
+    Making a list of items isn’t too difficult, here’s how you do it. There is 2 different type
+    of lists you can use, an unordered list and an ordered lists, for unordered lists you
+    would use the &ltul&gt tag and for ordered lists you would use the &ltol&gt tag.
+</p>
+
+<p>
+    Now what is the difference between Unordered lists and ordered list? Well, an
+    ordered list is which an order of the items does matter (e.g. Road Directions)
+</p>
+
+<p>
+    An unordered list is a list where the order of the items doesn’t matter (e.g. Grocery
+    List)
+</p>
+
+<p> 
+    To add a list item you would use the &ltli&gt tag (List Item), here’s an example of a list:
+    &ltul&gt
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<ul> 
+    <li>Item 1</li> 
+    <li>Item 2</li> 
+    <li>Item 3</li> 
+</ul> "
+%}
+
+<p>
+    You can also nest in a ordered list in, here’s what that would look like:
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <ol>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ol>
+</ul>"
+%}
+
+<p>
+    In lists you can add descriptions to your lists (e.g. making a dictionary with terms), to
+    add a descriptive list you can use the &ltdl&gt tag, to add a description term you add the
+    &ltdt&gt and to add a description definition you add the &ltdd&gt tag, here’s an example
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<dl>
+    <dt>News</dt>
+    <dd>Newley received or noteworthy information, especially about recent
+        events</dd>
+    <dt>Network</dt>
+    <dd>A group or system of interconnected people or things</dd>
+</dl>"
+%}
+
+<p>Now it’s time for the final section you’re going to learn in this guide,</p>
+<p>The forms!</p>
+
+<p>
+    So to make a form you need the &ltform&gt tag and also the &ltinput&gt tag, here’s most of
+    the stuff you’ll need to know about inputs
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=false content=
+"<input type='text' name='name' id='name' required/> "
+%}
+
+<ul>
+    <li>type=“text” – It makes the input type, a basic text field</li>
+    <li>name=“name” – Specifies a name for the data item. When the form is submitted, the data is sent in name/value pairs.</li>
+    <li>id=“name” – Specifies an ID to identify the element. It is usually used to associate it form controls with the &ltlabel&gt</li>#
+    <li>required – Makes the input required</li>
+    <li>For inputs there’s a few input types like, Radio (Circular Button), Colour (Colour Picker) and more</li>
+</ul>
+
+<p>
+    Here’s a quick example on how forms look like:
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<form>
+    <h2>Subscribe to our newsletter</h2>
+
+    <label for='name'>Name (required):</label>
+    <input type='text' name='name' id='name' required />
+
+    <label for='email'>Email (required):</label>
+    <input type='email' name='email' id='email' required />
+</form>
+<button>Sign me up!</button>"
+%}
+
+<p>
+    As you can see, you can use labels and input tags together like that, let me explain it
+    a bit easier
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=false content=
+"<label for='Name'>Name (Required):</label> "
+%}
+
+<p>
+    This is a &ltlabel&gt tag and its basically just the text/label above the input type
+</p>
+
+<p>
+    In the &ltlabel&gt tag you can see for=“Name” and this is the ID you could set in the
+</p>
+
+<p>
+    &ltinput&gt type that connects them both together
+</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=false content=
+"<input type='text' name='name' id='name' required /> "
+%}
+
+<p>
+    This is the input field you see bellow the text/label, type=“text” just means that you
+    can enter text, name=“name” just sets a name for the input, ID=“name” is the ID of
+    the input where it connects up to the &ltlabel&gt tag and required /&gt just means that the
+    input is required and then it closes off the tag to finish the input tag
+</p>
+
+<p>Now here’s a more longer form</p>
+
+{% include codeblock.html lang="html" lang-name="HTML" preview=true content=
+"<form action='./payment_page' method='get'>
+    <h2>Register for premium</h2>
+    <fieldset>
+        <legend>Choose the plan:</legend>
+        <div>
+            <input type='radio' id='PremiumChoice1' name='premium' value='Standard' checked />
+            <label for='PremiumChoice1'>Standard ($1.99)</label>
+            <input type='radio' id='PremiumChoice2' name='premium' value='Professional' />
+            <label for='PremiunmChoice2'>Professional ($4.99)</label>
+            <input type='radio' id='PremiumChoice3' name='hotel' value='max' disabled />
+            <label for='PremiumChoice3'>Max ($9.99)</label>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Choose extra add-ons</legend>
+        <div>
+            <input type='checkbox' id='storage' name='extrastorage' />
+            <label for='storage'>100GB Extra storage (+$5)</label>
+            <input type='checkbox' id='files' name='extrafiles' />
+            <label for='files'>50 Additonal max file limits (+$3)</label>
+            <input type='checkbox' id=“customization' name='morecuztomizing' />
+            <label for='customization'>Extra customization options (+$1)</label>
+        </div>
+    </fieldset>
+    <p>
+        <label for='paymentmethod'>Choose your payment method</label>
+        <select name='payment' id='paymentmethod'>
+            <option value=''>--Please choose an option--</option>
+            <option value='card'>Card</option>
+            <option value='giftcard'>Gift Card</option>
+            <option value='cash'>Cash (In-store)</option>
+        </select>
+    </p>
+    <p>
+        <label for='comments'>Any other comments:</label>
+        <textarea id='comments' name='comments' rows='5' cols='33'></textarea>
+    </p>
+</form>"
+%}
+
+<h1>5. The end</h1>
+<p>
+    Now you should know basically everything about HTML, this wasn’t a fully detailed
+    explanation guide so I recommend you take a look at the MDN web docs basic html
+    course
+</p>
+
+<p>Enjoy coding!</p>

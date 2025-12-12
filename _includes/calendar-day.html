@@ -1,0 +1,17 @@
+{% if include.article %}
+    {% assign post = site.posts | where: "slug", include.article | first %}
+{% endif %}
+
+<a class="day{{ include.date }} day {% if post %} revealed {% endif %}" href="{% if post %}/articles/{{include.article}}{% else %}/calendar{% endif %}">
+    {% if post %}
+        <img src="assets/cover-images/{{ post.cover_image }}" />
+        <svg class="date-corner" viewBox="0 0 219 219" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 219V83.95V0H79.0833H219L0 219Z"/>
+            <p class="date-corner-date">{{ include.date }}</p>
+        </svg>
+    {% else %}
+        <p class="date">{{ include.date }}</p>
+    {% endif %}
+</a>
+
+{% assign post = nil %}

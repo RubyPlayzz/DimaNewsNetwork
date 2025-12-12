@@ -1,0 +1,176 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+
+    background-image: linear-gradient(to bottom, var(--christmas-snowflake-bg-highlight), transparent 20%);
+    background-attachment: fixed;
+    background-size: 100% 100vh;
+}
+
+.calendar {
+    width: 100%;
+    max-width: 70rem;
+    height: 100%;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 10rem;
+
+    gap: 2rem;
+    padding: 2rem;
+
+    justify-content: end;
+}
+
+/* Title */
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+}
+
+.title img {
+    height: 3rem;
+}
+
+.title .title-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    gap: 1rem;
+}
+
+/* Days */
+.day {
+    display: block;
+
+    border: 2px dashed var(--box-border-color);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.day { pointer-events: none; }
+
+.day .date {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.day.revealed {
+    /* border: 1px solid var(--box-border-color); */
+    border: none;
+    pointer-events: all;
+}
+
+.day.revealed { pointer-events: all; }
+
+.day img {
+    aspect-ratio: 16 / 9;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: var(--border-radius);
+}
+
+.date-corner {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 3.5rem;
+    z-index: 2;
+
+    fill: black;
+    fill-opacity: 0.5;
+}
+
+.date-corner-date {
+    position: absolute;
+    top: 0.2em;
+    left: 0.3em;
+    z-index: 3;
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+}
+
+.day24 {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* Decoration */
+.christmas-small {
+    position: relative;
+    display: none;
+}
+
+img {
+    height: 15rem;
+}
+
+.candy-cane {
+    position: fixed;
+    bottom: 0;
+    right: 1px;
+}
+
+.dinner {
+    position: fixed;
+    bottom: 0;
+    right: 3rem;
+}
+
+.dinner img {
+    height: 10rem;
+}
+
+.snow-cat {
+    position: fixed;
+    bottom: 1px;
+    left: 0;
+}
+
+
+@media screen and (max-width: 960px) {
+    .christmas-big {
+        display: none;
+    }
+}
+
+
+@media (max-width: 35rem) {
+    .calendar {
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: 1fr;
+    }
+
+    .day24 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}

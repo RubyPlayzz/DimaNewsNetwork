@@ -251,6 +251,7 @@ a:active {
 
 a.unstyled-link {
     color: var(--text-primary);
+    text-decoration: none;
 }
 
 /* Alternative links */
@@ -270,7 +271,7 @@ a.unstyled-link {
     color: var(--alt-link-active);
 }
 
-button {
+button, .input-button {
     color: var(--button-text);
     background-color: var(--button-primary);
     padding: 0.2rem;
@@ -278,12 +279,29 @@ button {
     border-radius: var(--border-radius);
     border: none;
     cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-button:hover {
+button:hover, .input-button:hover {
     background-color: var(--button-primary-hover);
 }
 
-button:active {
+button:active, .input-button:active {
     background-color: var(--button-primary-active);
+}
+
+/* Input */
+input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.3rem;
+}
+
+input::placeholder {
+    color: var(--text-secondary);
 }
