@@ -41,6 +41,7 @@ body .calendar-notice {
     border-radius: var(--border-radius);
     margin-top: 1rem;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 .calendar-notice:hover {
