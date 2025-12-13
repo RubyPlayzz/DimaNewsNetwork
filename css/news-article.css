@@ -101,7 +101,34 @@ article a:active {
 
 /* Alternative links are defined in styles.css */
 
+/* Custom tags */
+collage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 
+    gap: 1rem;
+    margin: 1rem;
+}
+
+collage img {
+    flex: 1;
+    min-width: 0;
+    
+    object-fit: cover;
+    min-width: 15rem;
+    height: 20rem;
+    margin: 0;
+
+    position: relative;
+}
+
+@media screen and (max-width: 600px) {
+    collage {
+        margin: 1rem 0;
+    }
+}
 /* Alerts */
 .alert {
     --modal-accent-color: rgb(255, 255, 255); /* Each variable is set based on the variant. This is just a fallback */
