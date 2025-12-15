@@ -130,6 +130,10 @@ body {
     display: none;
 }
 
+.christmas-big {
+    z-index: 2;
+}
+
 img {
     height: 15rem;
 }
@@ -157,7 +161,7 @@ img {
 }
 
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1253px) {
     .christmas-big {
         display: none;
     }

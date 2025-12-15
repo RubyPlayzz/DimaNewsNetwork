@@ -2,7 +2,7 @@
     {% assign post = site.posts | where: "slug", include.article | first %}
 {% endif %}
 
-<a class="day{{ include.date }} day {% if post %} revealed {% endif %}" href="{% if post %}/articles/{{include.article}}{% else %}/calendar{% endif %}">
+<a class="day{{ include.date }} day{% if post %} revealed{% endif %}" href="{% if post %}/articles/{{include.article}}{% else %}/calendar{% endif %}">
     {% if post %}
         <img src="assets/cover-images/{{ post.cover_image }}" />
         <svg class="date-corner" viewBox="0 0 219 219" fill="none" xmlns="http://www.w3.org/2000/svg">
