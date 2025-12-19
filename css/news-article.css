@@ -124,6 +124,19 @@ collage img {
     position: relative;
 }
 
+collage[respect-ratio] img {
+    flex: 0 1 auto;
+    min-width: unset;
+    
+    object-fit: unset;
+    height: 20rem;
+    width: auto;
+    max-width: 100%;
+    margin: 0;
+
+    position: relative;
+}
+
 @media screen and (max-width: 600px) {
     collage {
         margin: 1rem 0;
