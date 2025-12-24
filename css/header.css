@@ -210,7 +210,7 @@ body > header .header-right img {
 }
 
 /* Media Query (Collapse UI for smaller devices) */
-@media screen and (max-width: 45em) {
+@media screen and (max-width: 55em) {
     .header-navigation > a {
         display: none;
     }

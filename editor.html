@@ -1,0 +1,28 @@
+---
+layout: null
+permalink: editor
+---
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/styles.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/editor.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/scripts/article-editor.css">
+
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/news-article.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/article-tag-colors.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/site-assets/icon-fill.png">
+</head>
+<body>
+    {% include header.html %}
+
+    <script type="module" src="{{site.baseurl}}/scripts/article-editor.js"></script>
+    <noscript>
+        You need to enable javascript to use the DNN editor!
+        <a href="/">Go back home instead?</a>
+    </noscript>
+</body>
+</html>

@@ -7,11 +7,4 @@ eslint.config.mjs
 node_modules
 package-lock.json
 package.json
-posts/2025-10-22-html-guide.html
 .vscode
-editor.html
-css/editor.css
-article-editor
-editor.js
-scripts/article-editor.js
-scripts/article-editor.css
