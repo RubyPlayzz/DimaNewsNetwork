@@ -28543,7 +28543,7 @@ function KA(i, e) {
   }
   let r = localStorage.getItem("article-editor-saved-article"), s;
   r && (s = JSON.parse(r));
-  let o = !0, a = s?.info, l = /* @__PURE__ */ qe(li(a?.title ?? "My Article")), c = /* @__PURE__ */ qe(li(a?.author ?? "nisio")), h = /* @__PURE__ */ qe(li(a?.tags ?? [{ name: "SHOCKING", color: "red" }]));
+  let o = !0, a = s?.info, l = /* @__PURE__ */ qe(li(a?.title ?? "My Article")), c = /* @__PURE__ */ qe(li(a?.author ?? "Me")), h = /* @__PURE__ */ qe(li(a?.tags ?? [{ name: "SHOCKING", color: "red" }]));
   lr(() => {
     if (te(l), te(c), JSON.stringify(te(h)), o) {
       o = !1;

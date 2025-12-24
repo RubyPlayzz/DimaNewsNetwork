@@ -67,7 +67,7 @@
 
 	let loadedArticleInfo = savedArticleData?.info;
 	let title = $state(loadedArticleInfo?.title ?? "My Article");
-	let author = $state(loadedArticleInfo?.author ?? "nisio");
+	let author = $state(loadedArticleInfo?.author ?? "Me");
 	let tags: Tag[] = $state(loadedArticleInfo?.tags ?? [
 		{name: "SHOCKING", color: "red"}
 	]);
