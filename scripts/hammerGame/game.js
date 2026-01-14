@@ -1,9 +1,9 @@
 //############## <--- Game Settings ---> ############## \\
 const MAXIMUM_MAX_ENEMY_BURST = 3; // this is kinda unused, you can make it higher if u want but doesnt to much other than make it harder
-const LOSE_ENEMY_COUNT = 20000; // How many enemies can spawn until the player loses
+const LOSE_ENEMY_COUNT = 20; // How many enemies can spawn until the player loses
 const ENEMY_COUNT_RED_START = 10; // Number that the enemy count will start getting red at (to indicate that the player is near the death count)
 
-const START_ENEMY_SPAWN_DELAY = 1; // How many miliseconds it takes before enemies will spawn. This is subtracted by ENEMY_SPAWN_DELAY_DECREASE every few kills
+const START_ENEMY_SPAWN_DELAY = 1700; // How many miliseconds it takes before enemies will spawn. This is subtracted by ENEMY_SPAWN_DELAY_DECREASE every few kills
 const MIN_ENEMY_SPAWN_DELAY = 800; // The minimum enemy spawn delay
 
 const ENEMY_SPAWN_DELAY_DECREASE = 20; // How much the enemy spawn delay decreases. The spawn delay will decrease around every 2 kills, but this gets higher the more kills you get
