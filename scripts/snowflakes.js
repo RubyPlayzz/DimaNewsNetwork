@@ -1,7 +1,7 @@
 const canvas = document.createElement("canvas");
 const context = canvas.getContext("2d");
 
-const SNOWFLAKE_AREA_Y = 150;
+const SNOWFLAKE_AREA_Y = 250;
 const SNOWFLAKE_SIZE = 40;
 // Canvas Setup \\
 canvas.style.position = "absolute";
