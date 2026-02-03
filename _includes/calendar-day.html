@@ -1,0 +1,22 @@
+{% if include.article %}
+    {% assign post = site.posts | where: "slug", include.article | first %}
+{% endif %}
+
+<a class="day{{ include.date | replace: ' ', '-' }} day{% if post or include.is-article-editor %} revealed{% endif %}" href="{% if post %}/articles/{{include.article}}{% else if include.is-article-editor %}/editor{% else %}/calendar{% endif %}">
+    {% if post or include.is-article-editor %}
+        {% if include.is-article-editor %}
+            <img src="assets/cover-images/article-editor-2.png" />
+        {% else %}
+            <img src="assets/cover-images/{{ post.cover_image }}" />
+        {% endif %}
+
+        <svg class="date-corner" viewBox="0 0 219 219" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 219V83.95V0H79.0833H219L0 219Z"/>
+            <p class="date-corner-date">{{ include.date }}</p>
+        </svg>
+    {% else %}
+        <p class="date">{{ include.date }}</p>
+    {% endif %}
+</a>
+
+{% assign post = nil %}

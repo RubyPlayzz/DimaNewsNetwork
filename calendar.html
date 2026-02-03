@@ -1,0 +1,75 @@
+---
+permalink: /calendar
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/styles.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/calendar.css">
+
+    <link rel="apple-touch-icon" sizes="32x32" href="{{ site.baseurl }}/assets/site-assets/icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/site-assets/icon-fill.png">
+
+    <meta property="og:title" content="Dima News Network">
+    <meta property="og:description" content="The best news, the Dima News.">
+    <meta property="og:image" content="{{ site.baseurl }}/assets/site-assets/dnn-embed-image.png">
+    <meta property="og:url" content="{{ site.baseurl }}/">
+    <meta property="og:type" content="website">
+    
+    <script src="{{ site.baseurl }}/scripts/snowflakes.js" type="module"></script>
+</head>
+<body>
+    {% include header.html %}
+
+    <div class="title">
+        <div class="title-div">
+            <!-- <img class="pixelated-img" src="{{ site.baseurl }}/assets/site-assets/icon-santa.png" /> -->
+            <h1>Christmas Drops</h1>
+        </div>
+        <p class="secondary">From December 12th-24th a new article will be released every 2nd day.</p>
+    </div>
+
+    <div class="calendar">
+        {% include calendar-day.html date=18 article="cloverpit-review" %}
+        {% include calendar-day.html date=20 article="fortnite-simpsons" %}
+        {% include calendar-day.html date=16 article="fortnite-chapter-7" %}
+        {% include calendar-day.html date=22 article="munny-missing" %}
+        {% include calendar-day.html date=14 article="lads-survival-is-back"%}
+        {% include calendar-day.html date=12 article="goober-cola-incident" %}
+        {% include calendar-day.html date=24 is-article-editor=true %}
+        {% include calendar-day.html date="24 " article="html-guide" %}
+    </div>
+
+    <div class="christmas-big">
+        <div class="candy-cane">
+            <img class="pixelated-img" src="{{ site.baseurl }}/assets/site-assets/candy-cane.png" alt="Candy Cane" />
+        </div>
+
+        <div class="snow-cat">
+            <img class="pixelated-img" src="{{ site.baseurl }}/assets/site-assets/snowcat.png" alt="Snowman" />
+        </div>
+
+        <div class="dinner">
+            <img class="pixelated-img" src="{{ site.baseurl }}/assets/site-assets/dinner.png" alt="Turkey Dinner" />
+        </div>
+    </div>
+
+    <div class="christmas-small">
+        <div class="candy-cane">
+            <img class="pixelated-img" src="{{ site.baseurl }}/assets/site-assets/candy-cane.png" alt="Candy Cane" />
+        </div>
+
+        <div class="snow-cat">
+            <img class="pixelated-img" src="{{ site.baseurl }}/assets/site-assets/snowcat.png" alt="Snowman" />
+        </div>
+
+        <div class="dinner">
+            <img class="pixelated-img" src="{{ site.baseurl }}/assets/site-assets/dinner.png" alt="Turkey Dinner" />
+        </div>
+    </div>
+</body>
+</html>

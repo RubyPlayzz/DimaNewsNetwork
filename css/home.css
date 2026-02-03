@@ -1,3 +1,11 @@
+body {
+    background-image: linear-gradient(to bottom, var(--christmas-snowflake-bg-highlight), transparent 20%);
+    background-attachment: fixed;
+    background-size: 100% 100vh;
+
+    overflow-x: hidden;
+}
+
 .home {
     max-width: 80em;
     margin: auto;
@@ -17,6 +25,31 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+/* Calendar notice */
+body .calendar-notice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: auto;
+    padding: 0.3rem;
+    background-color: rgb(78, 162, 207);
+    color: white;
+    border-radius: var(--border-radius);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.calendar-notice:hover {
+    background-color: rgb(109, 186, 227);
+}
+
+.calendar-notice:active {
+    background-color: rgb(118, 190, 229)
 }
 
 /* Title text */
@@ -51,13 +84,13 @@
 
 /* Article cards */
 #articles {
-    margin-top: 2em;
+    /* margin-top: 2em; */
 
     background-color: var(--box-color);
     border: 1px solid var(--box-border-color);
     border-radius: var(--border-radius);
     width: 100%;
-    min-height: 75vh;
+    min-height: 68vh;
 
     padding: 1em;
 
@@ -87,9 +120,9 @@
 /* Card Contents */
 .card > img {
     display: block;
-    width: 100%;        /* take the full card width */
-    height: auto;       /* allow height to adjust based on width */
-    object-fit: cover;  /* crop or scale image to fill the container */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
     border-bottom: 1px solid var(--box-border-color);
     margin: 0;
 

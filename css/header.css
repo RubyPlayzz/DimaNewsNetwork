@@ -6,7 +6,7 @@ body {
     margin-top: 3.5rem;
 }
 
-header {
+body > header {
     background-color: var(--header-color);
     backdrop-filter: blur(4px);
     border-bottom: 1px solid var(--header-border-color);
@@ -26,11 +26,11 @@ header {
     z-index: 1000;
 }
 
-header a {
+body > header a {
     text-decoration: none;
 }
 
-.header-left {
+body > header .header-left {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -38,7 +38,7 @@ header a {
     gap: 1em;
 }
 
-header .title-holder {
+body > header .title-holder {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -47,7 +47,7 @@ header .title-holder {
   height: 2rem;
 }
 
-header .title-holder .title-img-holder {
+body > header .title-holder .title-img-holder {
   height: 1.5rem;
   width: 1.5rem;
 
@@ -168,7 +168,7 @@ header .title-holder .title-img-holder {
     background-color: var(--box-color);
 }
 /* Header right side */
-.header-right {
+body > header .header-right {
     display: flex;
     flex-direction: row;
     gap: 1em;
@@ -176,7 +176,7 @@ header .title-holder .title-img-holder {
     height: 2em;
 }
 
-.header-right img {
+body > header .header-right img {
     height: 100%;
 }
 
@@ -210,12 +210,12 @@ header .title-holder .title-img-holder {
 }
 
 /* Media Query (Collapse UI for smaller devices) */
-@media screen and (max-width: 45em) {
+@media screen and (max-width: 55em) {
     .header-navigation > a {
         display: none;
     }
 
-    .header-left {
+    body > header .header-left {
         gap: 1em;
     }
 

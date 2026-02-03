@@ -1,3 +1,5 @@
 permalink: /articles/:title/ #For articles
 url: https://dima.news
 baseurl: ""
+exclude:
+  - article-editor/

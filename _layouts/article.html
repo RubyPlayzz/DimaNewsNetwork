@@ -7,6 +7,7 @@
     <title>DNN - {{ page.title_short }}</title>
     <link rel="stylesheet" href="{{ site.baseurl }}/css/styles.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/css/news-article.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/news-article-layout.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/css/article-tag-colors.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,19 +27,18 @@
 <body>
     {% include header.html %}
     <main id="content">
-        <div class="empty" id="content-empty"></div>
+        <div class="empty"></div>
         <article>
 
-            <h1 id="article-title">{{ page.title }}</b></h1>
+            <h1 class="article-title">{{ page.title }}</b></h1>
             <div class="article-card-tags">
                 {% include article-tags.html article-tags=page.article_tags %}
             </div>
 
-            <div id="article-info">
+            <div class="article-info">
                 <p class="article-info-item">{% include formatted-date.html date=page.date %}</p>
                 <p class="article-info-item">By {{ page.author }}</p>
             </div>
-
 
             <hr>
 
