@@ -1,5 +1,4 @@
 body {
-    background-image: linear-gradient(to bottom, var(--christmas-snowflake-bg-highlight), transparent 20%);
     background-attachment: fixed;
     background-size: 100% 100vh;
 
@@ -25,31 +24,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-/* Calendar notice */
-body .calendar-notice {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    height: auto;
-    padding: 0.3rem;
-    background-color: rgb(78, 162, 207);
-    color: white;
-    border-radius: var(--border-radius);
-    margin-top: 1rem;
     margin-bottom: 1rem;
-    text-align: center;
-}
-
-.calendar-notice:hover {
-    background-color: rgb(109, 186, 227);
-}
-
-.calendar-notice:active {
-    background-color: rgb(118, 190, 229)
 }
 
 /* Title text */

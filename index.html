@@ -19,8 +19,6 @@
     <meta property="og:image" content="{{ site.baseurl }}/assets/site-assets/dnn-embed-image.png">
     <meta property="og:url" content="{{ site.baseurl }}/">
     <meta property="og:type" content="website">
-    
-    <script src="{{ site.baseurl }}/scripts/snowflakes.js" type="module"></script>
 </head>
 <body>
     {% include header.html %}
@@ -34,11 +32,6 @@
             <p>The best news, <span class="accent-color">the Dima news</span>.</p>
         </div>
 
-        <a class="calendar-notice unstyled-link" href="/calendar">
-            <!-- Christmas Drops event! 1 article released every 2 days from December 12th-24th. Click here to view. -->
-            The Christmas Drops event is complete! Click here to view every article released (and the new Article Editor!).
-            Merry Christmas from all of DNN!
-        </a>
         <div id="articles">
             {% for article in site.posts %}
                 {% unless article.unlisted %}
